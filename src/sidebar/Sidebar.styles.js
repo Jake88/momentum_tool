@@ -1,9 +1,10 @@
 import Styled from 'styled-components'
+import { GREEN, NAVY } from '../constants/styles'
 
 import { PADDING_LG, PADDING_SM } from '../CommonComponents'
 
 export const StyledSidebar = Styled.aside`
-position: absolute;
+position: fixed;
 display: flex;
 flex-direction: column;
 z-index: 2;
@@ -19,8 +20,8 @@ padding: ${PADDING_LG};
 box-sizing: border-box;
 
 h1 {
-  color: yellowgreen;
-  text-shadow: 0px 1px 2px navy;
+  color: ${GREEN};
+  text-shadow: 0px 1px 2px ${NAVY};
 }
 
 button + button {

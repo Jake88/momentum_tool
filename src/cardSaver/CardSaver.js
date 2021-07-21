@@ -6,13 +6,13 @@ import { Button, Input, Row } from '../CommonComponents'
 
 export const CardSaver = () => {
   const [inputValue, setInputValue] = useState('')
-  const saveFiles = useCallback(() => {
+  const saveFiles = useCallback(async() => {
     let i = 1
     while (i > 0) {
       const el = document.getElementById(inputValue + i)
       if (el) {
         const tempIndex = i
-        DTI.toBlob(el).then(blob =>
+        await DTI.toBlob(el).then(blob =>
           FileSaver.saveAs(blob, inputValue + tempIndex + '.png')
         )
         i++

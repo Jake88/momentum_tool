@@ -1,34 +1,33 @@
-import { PLAYER_HAND_SIZE } from '../constants/gameVariables'
-import { MOVEMENT_ICON, CARD_ABILITY } from './cardConstants'
+import { PLAYER_HAND_SIZE } from '../../constants/gameVariables'
+import { MOVEMENT_ICON, CARD_ABILITY, POSSIBLE_STRAIGHTS, POSSIBLE_RIGHTS, POSSIBLE_LEFTS } from './cardConstants'
 
 export function createCardSet (setName = 'Setless') {
   let id = 1
   const setAbbreviation = setName
     .split(' ')
     .map(s => s.substr(0, 1))
-    .join()
+    .join('')
   return function createCard ({
     name = 'Unnamed',
-    momentum = MOVEMENT_ICON.STRAIGHT,
+    momentum = undefined,
     movement = [],
     xpGain = 0,
     ability = undefined,
     overwriteCost = undefined,
-    costModifer = 0
+    costModifier = 0
   }) {
     function getValue () {
-      let cost = costModifer
+      let cost = costModifier - 1
       if (momentum) cost += momentum.VALUE
       if (movement.length) {
         movement.forEach(move => cost += move.VALUE)
       }
       if (ability) cost += ability.VALUE
-      cost += xpGain
-      return cost
+      cost += xpGain * (xpGain - .5)
+      return Math.ceil(cost)
     }
     const estimatedCost = getValue()
 
-    console.log(movement)
     return {
       id: setAbbreviation + id++,
       set: setName,
@@ -72,29 +71,55 @@ export function keyStatCalculator (cardList, key) {
 }
 
 export function getIconStats (cardList) {
+  let totalSymbolCount = 0
+  const possibleMovementTypes = {
+    possibleStraights: 0,
+    possibleLefts: 0,
+    possibleRights: 0
+  }
   const iconMap = {}
   Object.values(MOVEMENT_ICON).forEach(icon => {
-    iconMap[icon.NAME] = 0
-  })
-
-  cardList.forEach(card => {
-    iconMap[card.movement.NAME] = iconMap[card.movement.NAME] + 1
-  })
-
-  Object.keys(iconMap).forEach(iconName => {
-    iconMap[iconName] = {
-      count: iconMap[iconName],
-      percentage: (iconMap[iconName] / cardList.length) * 100
+    iconMap[icon.NAME] = {
+      momentumCount: 0,
+      movementCount: 0,
+      totalSymbols: 0,
+      percentage: 0
     }
   })
 
-  return iconMap
+  function increaseGeneralMovementPossibilities(icon) {
+    if (POSSIBLE_STRAIGHTS.includes(icon.NAME)) possibleMovementTypes.possibleStraights++
+    if (POSSIBLE_RIGHTS.includes(icon.NAME)) possibleMovementTypes.possibleRights++
+    if (POSSIBLE_LEFTS.includes(icon.NAME)) possibleMovementTypes.possibleLefts++
+  }
+
+  cardList.forEach(card => {
+    if (card.momentum) {
+      totalSymbolCount++
+      iconMap[card.momentum.NAME].momentumCount++
+      increaseGeneralMovementPossibilities(card.momentum)
+    }
+
+    card.movement.forEach(move => {
+      iconMap[move.NAME].movementCount++
+      increaseGeneralMovementPossibilities(move)
+    })
+    totalSymbolCount += card.movement.length
+  })
+
+  Object.keys(iconMap).forEach(iconName => {
+    iconMap[iconName].totalSymbols = iconMap[iconName].momentumCount + iconMap[iconName].movementCount
+    iconMap[iconName].percentage = (iconMap[iconName].totalSymbols / totalSymbolCount) * 100
+  })
+
+  return {...possibleMovementTypes, ...iconMap}
 }
 
 export function getAbilityStats (cardList) {}
 
 export function calculateCardStats (cardList) {
   return {
+    cardCount: cardList.length,
     movementStats: getIconStats(cardList),
     //abilityStats,
     cost: keyStatCalculator(cardList, 'cost'),

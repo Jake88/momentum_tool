@@ -2,6 +2,7 @@ import React from 'react'
 import {
   CardBody,
   CardCost,
+  CardAbilitySection,
   CardMovementSection,
   CardName,
   CardSet,
@@ -19,21 +20,31 @@ export const Card = ({ cardConfig }) => {
       <CardSet>{cardConfig.set}</CardSet>
       <CardName>{cardConfig.name}</CardName>
 
-      <CardXpGain>
-        <h3>XP</h3>
-        {cardConfig.xpGain}
-      </CardXpGain>
-      <CardAbility>{cardConfig.ability}</CardAbility>
-      <CardMovementSection>
-        {!!cardConfig.movement?.length && (
-          cardConfig.movement.map(movement => (
-            <MovementIcon src={movement.IMG}/>
-          ))
+      <CardAbilitySection>
+        {!!cardConfig.xpGain && (
+          <CardXpGain>
+            <h3>XP</h3>
+            {cardConfig.xpGain}
+          </CardXpGain>
         )}
-        <MomentumSection src={cardConfig.momentum.IMG}>
-          <MomentumLabel>Momentum</MomentumLabel>
-        </MomentumSection>
-      </CardMovementSection>
+        {!!cardConfig.ability && (
+          <CardAbility>
+            <p>{cardConfig.ability.DESC}</p>
+          </CardAbility>
+        )}
+        {(!!cardConfig.movement?.length || !!cardConfig.momentum) && (
+          <CardMovementSection>
+            {!!cardConfig.movement?.length && (
+              cardConfig.movement.map((movement, index) => (
+                <MovementIcon key={cardConfig.id + index} src={movement.IMG}/>
+              ))
+            )}
+            <MomentumSection src={cardConfig.momentum?.IMG}>
+              <MomentumLabel>Momentum</MomentumLabel>
+            </MomentumSection>
+          </CardMovementSection>
+        )}
+      </CardAbilitySection>
     </CardBody>
   )
 }

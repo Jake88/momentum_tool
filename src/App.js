@@ -11,8 +11,7 @@ function App () {
   const [selectedCardList, setCardList] = useState([])
   return (
     <div>
-      <Sidebar setCardList={setCardList} />
-      <CardSaver />
+      <Sidebar setCardList={setCardList} cardList={selectedCardList} />
       <AppContainer>
         {selectedCardList.map(cardConfig => (
           <Card key={cardConfig.id} cardConfig={cardConfig} />

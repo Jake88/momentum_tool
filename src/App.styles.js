@@ -1,4 +1,5 @@
 import Styled from 'styled-components'
+import { PADDING_LG } from './CommonComponents'
 
 export const AppContainer = Styled.section`
   display: flex;
@@ -9,4 +10,5 @@ export const AppContainer = Styled.section`
   font-family: 'Helvetica Neue';
   margin: 0;
   padding: 0;
+  padding-top: ${PADDING_LG};
 `

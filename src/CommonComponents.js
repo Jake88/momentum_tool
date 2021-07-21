@@ -1,4 +1,5 @@
 import Styled from 'styled-components'
+import { GREEN, NAVY } from './constants/styles'
 
 export const PADDING_LG = `16px`
 export const PADDING_MD = `12px`
@@ -12,10 +13,10 @@ export const Row = Styled.div`
 export const Button = Styled.button`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   padding: ${PADDING_LG};
-  background-color: yellowgreen;
-  border: 1px solid navy;
+  background-color: ${GREEN};
+  border: 1px solid ${NAVY};
   border-radius: 3px;
-  color: navy;
+  color: ${NAVY};
   cursor: pointer;
   font-weight: bold;
   
@@ -28,8 +29,16 @@ export const Button = Styled.button`
 
 export const Input = Styled.input`
   padding: ${PADDING_LG};
-  color: navy;
+  color: ${NAVY};
   margin-right: ${PADDING_LG};
   border-radius: 3px;
-  border: 1px solid navy;
+  border: 1px solid ${NAVY};
+`
+
+export const Select = Styled.select`
+  padding: ${PADDING_LG};
+  color: ${NAVY};
+  margin-right: ${PADDING_LG};
+  border-radius: 3px;
+  border: 1px solid ${NAVY};
 `
