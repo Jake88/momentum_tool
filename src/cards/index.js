@@ -1,6 +1,6 @@
 import { STARTER_CARDS } from './cardSets/starterCards'
 
-function createCardList(cardLists) {
+function createCardList (cardLists) {
   let combinedList = []
   cardLists.forEach(list => {
     combinedList = [...combinedList, ...list]
@@ -8,8 +8,6 @@ function createCardList(cardLists) {
   return combinedList
 }
 
-const ALL_CARDS = createCardList(
-  STARTER_CARDS
-)
+const ALL_CARDS = createCardList([STARTER_CARDS])
 
-export { STARTER_CARDS }
+export { STARTER_CARDS, ALL_CARDS }

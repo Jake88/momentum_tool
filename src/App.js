@@ -1,13 +1,24 @@
+import React, { useState } from 'react'
+
 import { Card } from './cards/Card'
-import { STARTER_CARDS } from './cards/cardSets/starterCards'
-import './App.css'
+import { CardBack } from './cards/CardBack'
+import { CardSaver } from './cardSaver/CardSaver'
+import { Sidebar } from './sidebar/Sidebar'
+
+import { AppContainer } from './App.styles'
 
 function App () {
+  const [selectedCardList, setCardList] = useState([])
   return (
-    <div className='App'>
-      {STARTER_CARDS.map(cardConfig => (
-        <Card key={cardConfig.id} cardConfig={cardConfig} />
-      ))}
+    <div>
+      <Sidebar setCardList={setCardList} />
+      <CardSaver />
+      <AppContainer>
+        {selectedCardList.map(cardConfig => (
+          <Card key={cardConfig.id} cardConfig={cardConfig} />
+        ))}
+        <CardBack />
+      </AppContainer>
     </div>
   )
 }

@@ -50,7 +50,7 @@ export function createAddCopiesFunction (cardCreatorFunction) {
   }
 }
 
-export function keySummer(cardList, key) {
+export function keySummer (cardList, key) {
   let sum = 0
   cardList.forEach(card => {
     sum += card[key]
@@ -58,17 +58,17 @@ export function keySummer(cardList, key) {
   return sum
 }
 
-export function keyStatCalculator(cardList, key) {
+export function keyStatCalculator (cardList, key) {
   const sum = keySummer(cardList, key)
   const avg = sum / cardList.length
   return {
-    sum, 
+    sum,
     avg,
     avgPerHand: avg * PLAYER_HAND_SIZE
   }
 }
 
-export function getIconStats(cardList) {
+export function getIconStats (cardList) {
   const iconMap = {}
   Object.values(MOVEMENT_ICON).forEach(icon => {
     iconMap[icon.NAME] = 0
@@ -79,17 +79,18 @@ export function getIconStats(cardList) {
   })
 
   Object.keys(iconMap).forEach(iconName => {
-    iconMap[iconName] = {count: iconMap[iconName], percentage: iconMap[iconName] / cardList.length * 100}
+    iconMap[iconName] = {
+      count: iconMap[iconName],
+      percentage: (iconMap[iconName] / cardList.length) * 100
+    }
   })
 
   return iconMap
 }
 
-export function getAbilityStats(cardList) {
+export function getAbilityStats (cardList) {}
 
-}
-
-export function calculateCardStats(cardList) {
+export function calculateCardStats (cardList) {
   return {
     movementStats: getIconStats(cardList),
     //abilityStats,

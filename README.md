@@ -1,15 +1,19 @@
 # Momentum deck builder tool
 
 ## Card creation guide
+
 There are helper functions to create cards. See `cards/cardSets/starterCards.js` for an examples.
 All you need to do is create a card set using
+
 ```js
 const createCard = createCardSet('name of your set')
 const createCopies = createAddCopiesFunction(createCard)
 ```
+
 The above creates a set of cards, and applies an id on them based on the initals of the set name. For example the ID of the first card in the set above would be `noys1`
 
 Once you have your `createCard` and `createCopies` function, you can simply create cards by providing a card config. Below is an example of a config. Create copies works the same way, only you supply an amount of copies to be added into the set.
+
 ```js
 cardConfig = {
   name = 'Title of your card',
@@ -25,21 +29,22 @@ cardConfig = {
 ```
 
 ## Card set stats
+
 After creating a set of cards, we can get some stats for those cards using the debug tools found in cardUtils. Specifically calling `calculateCardStats(cardList)` and providing the set card list (or any list of cards) will return us some stats:
+
 ```js
 {
   movementStats, // an object that contains the number of each type of movement in this card set, and what percentage those types make up.
-  cost, // an object that provides the sum of all card costs, the average cost of each card, and the average cost based on player hand size.
-  estimatedCost, // an object that provides the sum of all card ESTIMATED COSTS, ... 
-  xpGain // an object that provides the sum of all card XP GAINS, ... (particularly useful for figuring out what things should cost) 
+    cost, // an object that provides the sum of all card costs, the average cost of each card, and the average cost based on player hand size.
+    estimatedCost, // an object that provides the sum of all card ESTIMATED COSTS, ...
+    xpGain // an object that provides the sum of all card XP GAINS, ... (particularly useful for figuring out what things should cost)
 }
 ```
 
 ## Displaying cards
+
 This is still a work in progress, but currently we can map through a set of cards and create a `<Card cardConfig={cardConfig}>` element, which will slap it on the page easy enough.
-This will only get tricky as different cards are introduced. 
-
-
+This will only get tricky as different cards are introduced.
 
 # Create React App stuff..
 

@@ -11,6 +11,7 @@ export const CardBody = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #efefef;
 `
 
 export const CardCost = styled.div`
@@ -100,8 +101,9 @@ export const CardMovement = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   img {
-    height: 130px
+    height: 130px;
   }
 `
