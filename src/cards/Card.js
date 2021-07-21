@@ -2,11 +2,14 @@ import React from 'react'
 import {
   CardBody,
   CardCost,
-  CardMovement,
+  CardMovementSection,
   CardName,
   CardSet,
   CardXpGain,
-  CardAbility
+  CardAbility,
+  MomentumSection,
+  MomentumLabel,
+  MovementIcon
 } from './Card.styles'
 
 export const Card = ({ cardConfig }) => {
@@ -21,9 +24,16 @@ export const Card = ({ cardConfig }) => {
         {cardConfig.xpGain}
       </CardXpGain>
       <CardAbility>{cardConfig.ability}</CardAbility>
-      <CardMovement>
-        <img src={cardConfig.movement.IMG} />
-      </CardMovement>
+      <CardMovementSection>
+        {!!cardConfig.movement?.length && (
+          cardConfig.movement.map(movement => (
+            <MovementIcon src={movement.IMG}/>
+          ))
+        )}
+        <MomentumSection src={cardConfig.momentum.IMG}>
+          <MomentumLabel>Momentum</MomentumLabel>
+        </MomentumSection>
+      </CardMovementSection>
     </CardBody>
   )
 }

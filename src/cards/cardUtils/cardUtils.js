@@ -9,32 +9,35 @@ export function createCardSet (setName = 'Setless') {
     .join()
   return function createCard ({
     name = 'Unnamed',
-    movement = MOVEMENT_ICON.STRAIGHT,
-    movementMultiplier = 1,
+    momentum = MOVEMENT_ICON.STRAIGHT,
+    movement = [],
     xpGain = 0,
     ability = undefined,
-    abilityMultiplier = 1,
     overwriteCost = undefined,
     costModifer = 0
   }) {
     function getValue () {
       let cost = costModifer
-      if (movement) cost += movement.VALUE * movementMultiplier
-      if (ability) cost += ability.VALUE * abilityMultiplier
+      if (momentum) cost += momentum.VALUE
+      if (movement.length) {
+        movement.forEach(move => cost += move.VALUE)
+      }
+      if (ability) cost += ability.VALUE
       cost += xpGain
       return cost
     }
     const estimatedCost = getValue()
+
+    console.log(movement)
     return {
       id: setAbbreviation + id++,
       set: setName,
       cost: typeof overwriteCost === 'number' ? overwriteCost : estimatedCost,
       name,
+      momentum,
       movement,
-      movementMultiplier,
       xpGain,
       ability,
-      abilityMultiplier,
       estimatedCost
     }
   }

@@ -89,21 +89,47 @@ export const CardAbility = styled.div`
   align-items: center;
 `
 
-export const CardMovement = styled.div`
+export const CardMovementSection = styled.div`
   position: absolute;
   height: 60px;
   width: 100%;
   font-size: 50px;
   font-weight: bold;
-  flex-grow: 1;
   bottom: 0;
   border-top: 1px solid grey;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   overflow: hidden;
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    width: 33.3%;
+    background-size: 80px;
+    background-position: center;
+  }
 
   img {
     height: 130px;
   }
+`
+
+export const MomentumSection = styled.div`
+  background-color: #ccc;
+  background-image: url(${({src})=> src});
+`
+
+export const MomentumLabel = styled.label`
+  font-size: 10px;
+  text-transform: uppercase;
+  font-style: italic;
+`
+
+export const MovementIcon = styled.div`
+    background-image: url(${({src})=> src});
+    width: 25%;
 `

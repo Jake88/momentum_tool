@@ -11,12 +11,13 @@ function generateStarterCards () {
   return [
     createCard({
       name: 'Wild',
-      movement: MOVEMENT_ICON.WILD,
+      momentum: MOVEMENT_ICON.WILD,
       overwriteCost: 0
     }),
     ...createCopies(2, {
       name: 'Choices',
-      movement: MOVEMENT_ICON.LEFT_OR_RIGHT,
+      momentum: MOVEMENT_ICON.LEFT_OR_RIGHT,
+      movement: [MOVEMENT_ICON.STRAIGHT, MOVEMENT_ICON.WILD],
       overwriteCost: 0
     }),
     ...createCopies(3, {
@@ -26,13 +27,13 @@ function generateStarterCards () {
     }),
     ...createCopies(2, {
       name: 'Left',
-      movement: MOVEMENT_ICON.LEFT,
+      momentum: MOVEMENT_ICON.LEFT,
       overwriteCost: 0,
       xpGain: 1
     }),
     ...createCopies(2, {
       name: 'Right',
-      movement: MOVEMENT_ICON.RIGHT,
+      momentum: MOVEMENT_ICON.RIGHT,
       overwriteCost: 0,
       xpGain: 1
     })

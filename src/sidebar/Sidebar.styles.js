@@ -6,7 +6,7 @@ export const StyledSidebar = Styled.aside`
 position: absolute;
 display: flex;
 flex-direction: column;
-
+z-index: 2;
 align-items: center;
 justify-content: top;
 top: 0;
