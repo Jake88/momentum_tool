@@ -87,30 +87,35 @@ export const CARD_ABILITY = {
   // PROTECTION
   SHIELD: (x = 1) => ({
     DESC: 
-      `Gain ${x} SHIELD for the round.`,
+      `Gain ${x} SHIELD.`,
     VALUE: 3
   }),
-  EVADE: {
+  STEADFAST: (x = 1) => ({
     DESC: 
-      `EVADE a car crash.`,
-    VALUE: 3
+      `Gain ${x} STEADFAST.`,
+    VALUE: 2
   },
 
   // UTILITY
-  BOOST: {
+  BOOST: (x = 1) => ({
     DESC: 
-      `BOOST adjacent cards`,
+      `BOOST adjacent cards by ${x}`,
     VALUE: 3
-  },
+  }),
   FORGET: (x = 1) => ({
     DESC: 
-      `FORGET ${x} card${x>1 ? 's' : ''}.`,
-      VALUE: 3
+      `You may FORGET ${x} card${x>1 ? 's' : ''}.`,
+    VALUE: 3
   }),
   DRAW: (x = 1) => ({
     DESC: 
       `Draw ${x} additional card${x>1 ? 's' : ''} next turn.`,
-      VALUE: 3
+    VALUE: 3
+  }),
+  GRAPPLE: (x = 1) => ({
+    DESC: 
+      `GRAPPLE to a card within 4 segments for ${x} reveals`,
+    VALUE: 3
   }),
   FORGET_SELF: {
     DESC: 
@@ -126,6 +131,10 @@ export const CARD_ABILITY = {
   }),
 }
 
+
+
+// TODO: Decide whether these are going to be abilities applies to cards in the Advanced deck or to cards in the unique deck.
+// The unique deck needs to be roughly balanced powers, since they don't cost anything to aquire!! So the values listed here are more for when they are in the Advanced deck
 export const UNIQUE_ABILITIES = {
   BUMPER_BARS: {
     DESC:  `Any time you would hit a wall, follow the lane instead.`,
@@ -143,12 +152,16 @@ export const UNIQUE_ABILITIES = {
     DESC:  `HOOK an opponent within 6 segments, twice.`,
     VALUE: 6
   },
-  SQUID_IT: {
+  SQUID_DEFENCE: {
     DESC:  `Gain SHIELD and leave OIL in your space.`,
     VALUE: 5
   },
   SLIP_N_SLIDE: {
     DESC:  `Leave OIL SLICKs in every tile you travel through.`,
     VALUE: 7
+  },
+  ADDED_EXTRA: {
+    DESC:  `Add this card to your deck, along with the top card of the Chop Shop for no additional cost.`,
+    VALUE: 3
   },
 }

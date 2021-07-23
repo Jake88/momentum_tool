@@ -94,17 +94,17 @@ function generateCards () {
       xpGain: 2
     }),
 
-    // EVADE
+    // STEADFAST
     ...createCopies(2, {
       name: 'Second chance',
       momentum: MOVEMENT_ICON.STRAIGHT,
-      ability: CARD_ABILITY.EVADE,
+      ability: CARD_ABILITY.STEADFAST(),
       xpGain: 2
     }),
     ...createCopies(2, {
       name: 'Second chance',
       momentum: MOVEMENT_ICON.LEFT_OR_RIGHT,
-      ability: CARD_ABILITY.EVADE,
+      ability: CARD_ABILITY.STEADFAST(),
       xpGain: 2
     }),
 
@@ -112,7 +112,7 @@ function generateCards () {
     // BOOST
     ...createCopies(2, {
       name: 'NOS',
-      ability: CARD_ABILITY.BOOST,
+      ability: CARD_ABILITY.BOOST(),
       xpGain: 1
     }),
 
