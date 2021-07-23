@@ -94,7 +94,7 @@ export const CARD_ABILITY = {
     DESC: 
       `Gain ${x} STEADFAST.`,
     VALUE: 2
-  },
+  }),
 
   // UTILITY
   BOOST: (x = 1) => ({
