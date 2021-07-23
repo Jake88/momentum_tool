@@ -83,7 +83,8 @@ export const CardXpGain = Styled.div`
 `
 
 export const CardAbility = Styled.div`
-  height: 60px;
+  height: auto;
+  min-height: 60px;
   font-size: 12px;
   flex-grow: 1;
   width: 100%;

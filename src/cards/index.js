@@ -1,6 +1,7 @@
 import { STARTER_CARDS } from './cardSets/starterCards'
 import { AUTO_SHOP_CARDS } from './cardSets/autoShop'
 import { BASIC_CARDS } from './cardSets/basicCards'
+import { UNIQUE_CARDS } from './cardSets/uniqueCards'
 
 function createCardList (cardLists) {
   let combinedList = []
@@ -10,6 +11,6 @@ function createCardList (cardLists) {
   return combinedList
 }
 
-const ALL_CARDS = createCardList([STARTER_CARDS])
+const ALL_CARDS = createCardList([STARTER_CARDS, AUTO_SHOP_CARDS, BASIC_CARDS, UNIQUE_CARDS])
 
-export { STARTER_CARDS, AUTO_SHOP_CARDS, ALL_CARDS, BASIC_CARDS }
+export { STARTER_CARDS, AUTO_SHOP_CARDS, ALL_CARDS, BASIC_CARDS, UNIQUE_CARDS }

@@ -61,7 +61,7 @@ Most cards have a momentum box in their movement section. When revealing and act
 - The first card you reveal each movement phase will have no momentum.
 
 ### Lose momentum
-Momentum can be lost by crashes and some negative effects. When momentum is lost rotate your <i>current card</i> upside down.
+Momentum can be lost by crashes and some negative effects. When momentum is lost rotate your <i>current card</i> upside down. This card is not used for spending, and it's movement and ability (unless already resolved) will not be actived.
 
 ## Bumping
 Often resolving a movement will put your car in the tile of another car. If this happens, a bump occurs. Simply apply same movement type you are resolving to the car being bumped. If this results in that car colliding with a wall, that car resolves a crash. If this results in either car ending on a track symbol, resolve that symbols effect to that car / player.
@@ -72,7 +72,8 @@ If momentum from your previous card causes a crash, your "current card" is consi
 
 To crash:
 1. first <b>lose momentum</b> of your current card.
-2. Reset your car in the middle lane of the same segment where the crash occured. If this tile is occupied, choose any unoccupied tile in the segment. 
+2. Remove all negative and positive tokens you might have.
+3. Reset your car in the middle lane of the same segment where the crash occured. If this tile is occupied, choose any unoccupied tile in the segment. 
 
 
 ## Current card
@@ -113,7 +114,7 @@ When a car is hooked it loses momentum and is pulled back 1 segment in it's curr
 
 When using the Oil Slick ability, leave an oil slick token in the space you are moving from.
 When entering a tile with an oil slick token (or gaining by another means) gain that oil token.
-The next time you would resolve a momvement type that is NOT straight, treat it as a straight and discard this oil token.
+For the rest of the round, or until you crash to remove the token, all momvement is considered straight.
 
 
 ## Defensive
@@ -156,3 +157,10 @@ This effect lasts until:
  2. The grappling car is affected by any negative effect,
  3. The grappling car bumps the grappled car,
  4. Or the grappling car reaches the same segment as the grappled car
+
+
+# AI
+
+
+## Targeting behaviour
+When an AI needs to target an opponent and their are multiple choices, they will always pick the one currently in the lead, and if tied in the same segment, they go by turn order (with the player with the first player token being highest priority and going left.)

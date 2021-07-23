@@ -3,7 +3,7 @@ import React, { useState, useCallback } from 'react'
 import { calculateCardStats } from '../cards/cardUtils/cardUtils'
 import { MOVEMENT_ICON } from '../cards/cardUtils/cardConstants'
 // CARDS
-import { ALL_CARDS, STARTER_CARDS, AUTO_SHOP_CARDS, BASIC_CARDS } from '../cards'
+import { ALL_CARDS, STARTER_CARDS, AUTO_SHOP_CARDS, BASIC_CARDS, UNIQUE_CARDS } from '../cards'
 
 import { Button, Select } from '../CommonComponents'
 import { Divider, StyledSidebar } from './Sidebar.styles'
@@ -96,6 +96,12 @@ export const Sidebar = ({ setCardList, cardList }) => {
         onClick={() => onClick(AUTO_SHOP_CARDS)}
       >
         Auto Shop Cards
+      </Button>
+      <Button
+        fullWidth
+        onClick={() => onClick(UNIQUE_CARDS)}
+      >
+        Unique Cards
       </Button>
 
       {/* <textarea value={stats} /> */}

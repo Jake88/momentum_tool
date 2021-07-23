@@ -130,38 +130,3 @@ export const CARD_ABILITY = {
     VALUE: 5
   }),
 }
-
-
-
-// TODO: Decide whether these are going to be abilities applies to cards in the Advanced deck or to cards in the unique deck.
-// The unique deck needs to be roughly balanced powers, since they don't cost anything to aquire!! So the values listed here are more for when they are in the Advanced deck
-export const UNIQUE_ABILITIES = {
-  BUMPER_BARS: {
-    DESC:  `Any time you would hit a wall, follow the lane instead.`,
-    VALUE: 8
-  },
-  STUCK_PEDDAL: {
-    DESC:  `This card goes face up at the start of your driveway line and remains there for the rest of the game.`,
-    VALUE: 2
-  },
-  JOKERS_JOY: {
-    DESC:  `When revealed, swap this card with the current leader's next unrevealed card.`,
-    VALUE: 0
-  },
-  LOCK_UP: {
-    DESC:  `HOOK an opponent within 6 segments, twice.`,
-    VALUE: 6
-  },
-  SQUID_DEFENCE: {
-    DESC:  `Gain SHIELD and leave OIL in your space.`,
-    VALUE: 5
-  },
-  SLIP_N_SLIDE: {
-    DESC:  `Leave OIL SLICKs in every tile you travel through.`,
-    VALUE: 7
-  },
-  ADDED_EXTRA: {
-    DESC:  `Add this card to your deck, along with the top card of the Chop Shop for no additional cost.`,
-    VALUE: 3
-  },
-}

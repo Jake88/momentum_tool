@@ -32,6 +32,17 @@ To setup the market follow these steps:
 
 ## Players
 
+# Game phases
+
+1. Draw phase
+2. Program phase (where cards are played face down in your programming track)
+3. Reveal / Movement / Execute phase (Recursive phase where players in turn order reveal and resolve their next card and)
+4. AI phase ??
+5. Market phase
+6. Clean up phase
+
+
+# Notes
 
 ## Ideas to implement / test:
 <i>Note: This is a list of ideas to play test and trial. Once tested, strike these through to keep a record of things tested and either move the feature into the main document or get rid of it.</i>
@@ -85,10 +96,32 @@ This went much better. The AI ended up winning by almost a full "round" worth, b
 We both had a lot of fun actually, which is super promising!
 
 ### Actions
-- Try Reducing track size by 4 pieces to allow for 2 laps.
+- DONE -> Try Reducing track size by 4 pieces to allow for 2 laps.
 - No change to AI just yet
 - Add some unique cards
 - Add Some driver cards
 - Add an advanced market?
-- Add some player dash boards and a round tracker, with instructions for collecting stats during the game.
-- Add a glossary dashboard for all the card terminology
+- DONE -> Add some player dash boards and a round tracker, with instructions for collecting stats during the game.
+- DONE -> Add a glossary dashboard for all the card terminology
+
+
+## FOURTH play test
+
+Game went for a while but lots of writing and questions within. Over 2 hours for a 2 lap with 17 piece track.
+Used the Unique power cards. All 3 seemed reasonably fun - Joker was chaotic.
+Jake won, just beating the AI who came second. Some questions around how the AI moves.
+The AI cleared up a lot of the oil / obsticles which isn't ideal because they don't do really affect the AI in  a big way (they don't crash). Maybe the AI should be treated as "ghosts" that race, and cause mayhem, but are actually ethereal and don't run into player cars or are targetable.??? AI should ignore all DRAW and FORGET abilities.
+Crashing can actually seem beneficial at times getting you off a 4 corner wall and putting you into the 2 lane middle at the cost of momentum and XP points...?? Seems fine...
+6-8 point cards were never purchased. Need to rework the cost of these shield cards. NOS seems really powerful. Draw seems really powerful?
+Oil doesn't feel impactful. Maybe when you hit an oil tile you actually slide right through it (apply your movement type again) but this feels like it is fine for a straight movement. Have tweaked this to be a little stronger.
+
+
+- What happens when the AI hits an obsticle, does it reset to the middle or just go where the obsticle was? Is there any negative to an AI hitting an osticle??
+- Does oil slick markers go away at the end of the round if not used??
+- Is stuck pedal to strong or should it remain as a momentum L||R?
+
+### Actions
+- Obsticle and oil are currently the same value. Either oil lower or obsticle higher.
+- Either bring down the cost of the higher cost market cards, or raise the XP gain from cheaper ones. Right now it's very rare to get 5-6 points to spend.
+- Lots of questions around how the AI should work with regards to interacting with tokens on the board.
+- Add track symbols and powerup / negative effect deck to draw from?
