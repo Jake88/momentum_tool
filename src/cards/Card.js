@@ -18,7 +18,7 @@ export const Card = ({ cardConfig }) => {
     <CardBody id={cardConfig.id}>
       {!!cardConfig.cost && <CardCost>{cardConfig.cost}</CardCost>}
       <CardSet>{cardConfig.set}</CardSet>
-      <CardName>{cardConfig.name}</CardName>
+      {/* <CardName>{cardConfig.name}</CardName> */}
 
       <CardAbilitySection>
         {!!cardConfig.xpGain && (

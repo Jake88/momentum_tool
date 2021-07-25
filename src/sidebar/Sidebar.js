@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { calculateCardStats } from '../cards/cardUtils/cardUtils'
 import { MOVEMENT_ICON } from '../cards/cardUtils/cardConstants'
 // CARDS
-import { ALL_CARDS, STARTER_CARDS, AUTO_SHOP_CARDS, BASIC_CARDS, UNIQUE_CARDS, ADVANCED_CARDS, CHOP_SHOP_CARDS } from '../cards'
+import { ALL_CARDS, STARTER_CARDS, BASIC_CARDS, UNIQUE_CARDS, ADVANCED_CARDS, AI_DECK } from '../cards'
 
 import { Button, Select } from '../CommonComponents'
 import { Divider, StyledSidebar } from './Sidebar.styles'
@@ -62,7 +62,7 @@ export const Sidebar = ({ setCardList, cardList }) => {
       </Select>
 
       <h1>Filter Cards</h1>
-      <Button
+      {/* <Button
         fullWidth
         onClick={() => onClick(ALL_CARDS)}
       >
@@ -79,7 +79,7 @@ export const Sidebar = ({ setCardList, cardList }) => {
         onClick={() => onClick([...ADVANCED_CARDS, ...CHOP_SHOP_CARDS])}
       >
         All ChopShop cards
-      </Button>
+      </Button> */}
       <Button
         fullWidth
         onClick={() => {
@@ -101,12 +101,12 @@ export const Sidebar = ({ setCardList, cardList }) => {
       >
         Basic Cards
       </Button>
-      <Button
+      {/* <Button
         fullWidth
         onClick={() => onClick(AUTO_SHOP_CARDS)}
       >
         Auto Shop Cards
-      </Button>
+      </Button> */}
       <Button
         fullWidth
         onClick={() => onClick(UNIQUE_CARDS)}
@@ -121,10 +121,16 @@ export const Sidebar = ({ setCardList, cardList }) => {
       </Button>
       <Button
         fullWidth
+        onClick={() => setCardList(AI_DECK)}
+      >
+        Momentum AI
+      </Button>
+      {/* <Button
+        fullWidth
         onClick={() => onClick(CHOP_SHOP_CARDS)}
       >
         Chop shop
-      </Button>
+      </Button> */}
 
       {/* <textarea value={stats} /> */}
     </StyledSidebar>

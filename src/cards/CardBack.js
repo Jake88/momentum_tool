@@ -5,7 +5,7 @@ import { CardBody } from './Card.styles'
 const Label = Styled.h1`
   font-weight: bold;
   font-size: 30px;
-  color: #333;
+  color: darkred;
   font-style: italic;
 `
 

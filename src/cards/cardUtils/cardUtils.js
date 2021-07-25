@@ -1,6 +1,13 @@
 import { PLAYER_HAND_SIZE } from '../../constants/gameVariables'
 import { MOVEMENT_ICON, CARD_ABILITY, POSSIBLE_STRAIGHTS, POSSIBLE_RIGHTS, POSSIBLE_LEFTS } from './cardConstants'
 
+const adjustNonMomentumMovementValue = baseValue => baseValue * .75
+
+const determineValueOfXpGain = gainAmount => {
+  const determinedCost = gainAmount * gainAmount * .5
+  return determinedCost < 1 ? 1 : determinedCost
+}
+
 export function createCardSet (setName = 'Setless') {
   let id = 1
   const setAbbreviation = setName
@@ -20,10 +27,10 @@ export function createCardSet (setName = 'Setless') {
       let cost = costModifier
       if (momentum) cost += momentum.VALUE
       if (movement.length) {
-        movement.forEach(move => cost += move.VALUE)
+        movement.forEach(move => cost += adjustNonMomentumMovementValue(move.VALUE))
       }
       if (ability) cost += ability.VALUE
-      cost += xpGain
+      cost += determineValueOfXpGain(xpGain)
       return Math.ceil(cost)
     }
     const estimatedCost = getValue()

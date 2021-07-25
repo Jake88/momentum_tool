@@ -157,3 +157,38 @@ AI Won (just).
 - Too many things in the market cost 7!
 - Momentus seemed too powerful (Maybe make it a "Forget this card"? but not sure. It's likely to cause crashes...), and "Added extras" seemed underwhelming, although it's a bit of a gamble as to what additional card you get, but it is diluting your pool! 
 - We were unable to buy pretty much anything from the advanced market.
+
+
+## SIXTH play test
+Fun rating 3.5/5
+
+Start at 7:30
+Finish at 9:35, but had a lot of breaks in between.
+Both types of AI beat us
+
+ : first lap, 5 rounds.
+### Feature changes
+2 New AI.
+  - 1 with new AI deck using no momentum
+  - 1 with new AI deck using momentum (far too strong)
+
+New Basic / Advanced decks with no abilities
+
+No unique cards
+
+New movement rule for turning against a corner. It ends up being a lane change instead of "straight + a lane change"
+
+### feedback
+- Unsure whether current "bump" rule makes sense. There are scenarios where being bumped out of a corner seems weird (if you are on a straight just after a corner, and a car goes "LEFT" out of the corner, it bumps you left into the wall??)
+- Miss says good card decisions during market phase.
+- ADvanced deck probably needs to have some 5 cost cards. If you crash you are left often having 5 as opposed to 6 to spend in the market.
+- AI Deck definitely should not provide momentum. Red car whoops our butt.
+- AI Deck may need tweaking down a little bit, or AI needs to "crash" and loose the movement from its' card. Also this might balance out with the addition of power-ups.
+- Advanced market felt overwhelming. Ended up just trying to buy the most flexible cards (wilds, L||R etc). Wilds etc should be allowed as momentums. Ended up with 8-9 to buy and nothing worth 8-9 so maybe some more flexibility there.
+
+### Actions
+- Create a power deck and power tokens to be placed on the track. When cars drive over it they get to draw a card from that deck.
+- Modify the advanced deck
+  - More variance in cost (some higher cost, higher power cards would be good)
+  - Wilds etc for momentum
+  - More "structured" cards to provide what is hopefully more meaningful purchases.

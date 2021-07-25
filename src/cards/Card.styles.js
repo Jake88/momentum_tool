@@ -131,6 +131,7 @@ export const CardMovementSection = Styled.div`
 
 export const MomentumSection = Styled.div`
   border-left: 1px solid #999;
+  color: darkred;
   background-image: url(${({src})=> src});
 `
 
