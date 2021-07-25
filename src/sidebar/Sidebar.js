@@ -1,9 +1,9 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 
 import { calculateCardStats } from '../cards/cardUtils/cardUtils'
 import { MOVEMENT_ICON } from '../cards/cardUtils/cardConstants'
 // CARDS
-import { ALL_CARDS, STARTER_CARDS, AUTO_SHOP_CARDS, BASIC_CARDS, UNIQUE_CARDS } from '../cards'
+import { ALL_CARDS, STARTER_CARDS, AUTO_SHOP_CARDS, BASIC_CARDS, UNIQUE_CARDS, ADVANCED_CARDS, CHOP_SHOP_CARDS } from '../cards'
 
 import { Button, Select } from '../CommonComponents'
 import { Divider, StyledSidebar } from './Sidebar.styles'
@@ -25,19 +25,24 @@ export const Sidebar = ({ setCardList, cardList }) => {
   const sortList = useCallback(cardList => {
     const sortedArray = [...cardList]
 
+    console.log('asdasd', orderBy)
     switch(orderBy) {
       case 'xpGain':
-        sortedArray.sort((current, next) => current.xpGain - next.xpGain)
+        sortedArray.sort((current, next) => current.xpGain > next.xpGain ? 1 : -1)
         break
       case 'cost':
-        sortedArray.sort((current, next) => current.cost - next.cost)
+        sortedArray.sort((current, next) => current.cost > next.cost ? 1 : -1)
         break
       case 'movement':
-        sortedArray.sort((current, next) => MOVEMENT_TIER[current.momentum?.NAME] - MOVEMENT_TIER[next.momentum?.NAME])
+        sortedArray.sort((current, next) => MOVEMENT_TIER[current.momentum?.NAME] > MOVEMENT_TIER[next.momentum?.NAME] ? 1 : -1)
     }
 
     setCardList(sortedArray)
   }, [orderBy])
+
+  useEffect(() => {
+    sortList(cardList)
+  }, [sortList])
   
   return (
     <StyledSidebar>
@@ -49,7 +54,6 @@ export const Sidebar = ({ setCardList, cardList }) => {
       <h1>Order by</h1>
       <Select value={orderBy} onChange={e => {
         setOrderBy(e.target.value)
-        sortList(cardList)
       }}>
         <option value=''>None</option>
         <option value='xpGain'>XP Gain</option>
@@ -69,6 +73,12 @@ export const Sidebar = ({ setCardList, cardList }) => {
         onClick={() => onClick([...AUTO_SHOP_CARDS, ...BASIC_CARDS])}
       >
         All AutoShop cards
+      </Button>
+      <Button
+        fullWidth
+        onClick={() => onClick([...ADVANCED_CARDS, ...CHOP_SHOP_CARDS])}
+      >
+        All ChopShop cards
       </Button>
       <Button
         fullWidth
@@ -102,6 +112,18 @@ export const Sidebar = ({ setCardList, cardList }) => {
         onClick={() => onClick(UNIQUE_CARDS)}
       >
         Unique Cards
+      </Button>
+      <Button
+        fullWidth
+        onClick={() => onClick(ADVANCED_CARDS)}
+      >
+        Advanced Cards
+      </Button>
+      <Button
+        fullWidth
+        onClick={() => onClick(CHOP_SHOP_CARDS)}
+      >
+        Chop shop
       </Button>
 
       {/* <textarea value={stats} /> */}

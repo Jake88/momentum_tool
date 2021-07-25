@@ -25,7 +25,7 @@ const UNIQUE_ABILITIES = {
     VALUE: 0
   },
   LOCK_UP: {
-    DESC:  `HOOK an opponent within 6 segments. Repeat this once.`,
+    DESC:  `HOOK an opponent within 8 segments. Repeat this once.`,
     VALUE: 6
   },
   SQUID_DEFENCE: {
@@ -64,6 +64,10 @@ const UNIQUE_ABILITIES = {
     DESC:  `Unless you crash into an obsticle, all your movement symbols are considered straight and you follow your current lane.`,
     VALUE: 5
   },
+  MIMIC: {
+    DESC:  `This cards' movement is an exact clone of the current leaders' revealed journey. Ignore any abilities, and momentum symbols are only counted once.`,
+    VALUE: 5
+  },
   BUMPER_BARS: { // figure out an ability here?
     DESC:  ``,
     VALUE: 5
@@ -72,7 +76,11 @@ const UNIQUE_ABILITIES = {
 
 function generateCards () {
   const createCard = createCardSet('Unique Cards')
-  //const createCopies = createAddCopiesFunction(createCard)
+
+  // DESIGN NOTE: Because these do not cost money they should attempt to be somewhat balanced.
+
+  // DESIGN NOTE: Most unique abilities should have 2-3 (ideally 3) XP to help with the transition into the Advanced deck.
+
   return [
     createCard({
       name: 'Get over here!',

@@ -17,13 +17,13 @@ export function createCardSet (setName = 'Setless') {
     costModifier = 0
   }) {
     function getValue () {
-      let cost = costModifier - 1
+      let cost = costModifier
       if (momentum) cost += momentum.VALUE
       if (movement.length) {
         movement.forEach(move => cost += move.VALUE)
       }
       if (ability) cost += ability.VALUE
-      cost += xpGain * (xpGain - .5)
+      cost += xpGain
       return Math.ceil(cost)
     }
     const estimatedCost = getValue()
@@ -61,10 +61,18 @@ export function keySummer (cardList, key) {
 }
 
 export function keyStatCalculator (cardList, key) {
+  let max = 0
+  let min = 100
+  cardList.forEach(card => { 
+    if (card[key] > max) max = card[key]
+    if (card[key] < min) min = card[key]
+  })
   const sum = keySummer(cardList, key)
   const avg = sum / cardList.length
   return {
     sum,
+    max,
+    min,
     avg,
     avgPerHand: avg * PLAYER_HAND_SIZE
   }

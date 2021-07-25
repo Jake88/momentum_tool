@@ -25,22 +25,22 @@ export const MOVEMENT_ICON = {
   STRAIGHT_OR_LEFT: {
     NAME: 'STRAIGHT_OR_LEFT',
     IMG: IconStraightLeft,
-    VALUE: 2.5
+    VALUE: 2
   },
   STRAIGHT_OR_RIGHT: {
     NAME: 'STRAIGHT_OR_RIGHT',
     IMG: IconStraightRight,
-    VALUE: 2.5
+    VALUE: 2
   },
   LEFT_OR_RIGHT: {
     NAME: 'LEFT_OR_RIGHT',
     IMG: IconLeftRight,
-    VALUE: 3
+    VALUE: 2
   },
   WILD: {
     NAME: 'WILD',
     IMG: IconWild,
-    VALUE: 4
+    VALUE: 3
   }
 }
 
@@ -69,7 +69,7 @@ export const GAIN_XP_VALUE = 1
 
 export const CARD_ABILITY = {
   // WEAPONS
-  HOOK: (x = 3) => ({
+  HOOK: (x = 4) => ({
     DESC: 
       `HOOK a car within ${x} segment${x>1 ? 's' : ''}.`,
     VALUE: 3
@@ -81,14 +81,14 @@ export const CARD_ABILITY = {
   },
   OBSTICLE: {
     DESC: `Leave an OBSTICLE.`,
-    VALUE: 2
+    VALUE: 2.5
   },
 
   // PROTECTION
   SHIELD: (x = 1) => ({
     DESC: 
       `Gain ${x} SHIELD.`,
-    VALUE: 3
+    VALUE: 2
   }),
   STEADFAST: (x = 1) => ({
     DESC: 
@@ -100,7 +100,7 @@ export const CARD_ABILITY = {
   BOOST: (x = 1) => ({
     DESC: 
       `BOOST adjacent cards by ${x}`,
-    VALUE: 3
+    VALUE: 4
   }),
   FORGET: (x = 1) => ({
     DESC: 
@@ -112,18 +112,28 @@ export const CARD_ABILITY = {
       `Draw ${x} additional card${x>1 ? 's' : ''} next turn.`,
     VALUE: 3
   }),
-  GRAPPLE: (x = 1) => ({
+  GRAPPLE: (x = 4) => ({
     DESC: 
-      `GRAPPLE to a card within 4 segments for ${x} reveals`,
-    VALUE: 3
+      `GRAPPLE to a car within ${x} segments.`,
+    VALUE: 5
   }),
   FORGET_SELF: {
     DESC: 
       `After being played, FORGET this card.`,
       VALUE: 0
   },
+  LAST_STRETCH: {
+    DESC: 
+      `If revealed last in your journey, double this cards movement.`,
+      VALUE: 2
+  },
 
   // COMBO
+  CHAINLINK: (x = 4) => ({
+    DESC: 
+      `HOOK a car within ${x} segments. Then GRAPPLE that car.`,
+    VALUE: 5
+  }),
   OFFLOAD: (x = 1) => ({
     DESC: 
       `FORGET ${x} card${x>1 ? 's' : ''} and leave an OBSTICLE.`,

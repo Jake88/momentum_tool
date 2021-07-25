@@ -140,10 +140,10 @@ That car remains in the tile it was, and loses momentum.
 When a card is boosted, each of it's movements are triggered X additional times, where X is the boost value. Boost value is always 1 unless otherwise stated.
  <i>Note: A boosted card remains boosted for the remainer of the round, meaning it's momentum movement may be triggered multiple times.</i>
 
-### FORGET
+### Forget
 During the clean up phase trash a card from your hand, discard or play area. The target of this card may sometimes be defined, such as "this" card referring to the cards self. Unless the keyword "may" is used, this is a requirement.
 
-### DRAW
+### Draw
 Whenever a card says to draw, it means to draw in the following round. To help keep track you can pull x number of cards off the top and place them infront of you to help remember to draw those.
 
 ### Grapple
@@ -156,7 +156,8 @@ This effect lasts until:
  1. Either car crashes,
  2. The grappling car is affected by any negative effect,
  3. The grappling car bumps the grappled car,
- 4. Or the grappling car reaches the same segment as the grappled car
+ 4. The grappling car reaches the same segment as the grappled car
+ 5. Or the movement phases ends
 
 
 # AI

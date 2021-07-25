@@ -67,7 +67,15 @@ To setup the market follow these steps:
 7. Refine core gameplay (That is 2 lap, roughly X? segments, roughly 1 - 1.5 hours of gameplay) but then determine how you might play a game of 3 laps or more track pieces. Potentially the game reverts to a more traditional deck builder. IE don't trash a card each time your round ends, and add an additional 2 starting cards?
 8. Instead of a "Sponsor" card, we could just have a loan card that reads: Gain 1, when played do nothing, but pay 2 this round to FORGET this card.
 9. Trial a CO-OP mode where all players control a single car and try to race it against AI.
+10. Do my cards actually need names???
+11. As an idea to try, maybe I scrap the "Deck building" mechanic, and remain with starting deck. Then as players drive and pick up bonuses / negatives on the road, they draw from good / bad decks which add to their race deck. They can still draw unique cards at the end point. 
+12. Grapple COULD just drag you to the tile behind that car?
 
+13. New style of gameplay to try:
+   1. Remove all ability cards and create basic / advanced deck of pure movement cards.
+   2. Still need to balance xpGain with cost though!
+   3. Add a way of placing positive and negative markers on track pieces.This could be done add tiles with 1-6 transparent numbers, rolling dice and adding a + or - token to that tile. Or it could be done at random by the player however they want to set up, or they could use the scenario book to set them up? 
+   4.  When hitting that you will either draw from the + deck or the - deck and do the effect or in some cases hold onto the card for later boost. 
 
 ## Design Notes:
 1. 
@@ -98,7 +106,7 @@ We both had a lot of fun actually, which is super promising!
 ### Actions
 - DONE -> Try Reducing track size by 4 pieces to allow for 2 laps.
 - No change to AI just yet
-- Add some unique cards
+- DONE -> Add some unique cards
 - Add Some driver cards
 - Add an advanced market?
 - DONE -> Add some player dash boards and a round tracker, with instructions for collecting stats during the game.
@@ -106,6 +114,8 @@ We both had a lot of fun actually, which is super promising!
 
 
 ## FOURTH play test
+
+Fun rating 2/5
 
 Game went for a while but lots of writing and questions within. Over 2 hours for a 2 lap with 17 piece track.
 Used the Unique power cards. All 3 seemed reasonably fun - Joker was chaotic.
@@ -125,3 +135,25 @@ Oil doesn't feel impactful. Maybe when you hit an oil tile you actually slide ri
 - Either bring down the cost of the higher cost market cards, or raise the XP gain from cheaper ones. Right now it's very rare to get 5-6 points to spend.
 - Lots of questions around how the AI should work with regards to interacting with tokens on the board.
 - Add track symbols and powerup / negative effect deck to draw from?
+
+## FIFTH play test
+Fun rating 3/5
+
+Start at 11:10
+ 50 minutes: first lap, 5 rounds.
+Game End at 12:40, but 5-10 minutes of writing, and a lot of time with Miss thinking.
+### Feature changes
+New advanced deck
+Changed xpGain values of basic deck and removed forget / draw mechanics
+
+AI Won (just).
+
+### feedback
+- ? AI confusing with some ability cards... In particular last stretch
+- Hooker costs 5 - seems like the Basic cards have gone up in value unexpectedly!?
+- ? AI question. In a 3 lane cross over tile, in the middle lane if they get a choices card, they will crash either way so which way do that go? Towards the inner corner makes sense but this just adds more complexity to AI rules...
+- ? QUestion around order during move turn. Turn order is: Reveal the card. Handle any reveal effects. Do momentum, apply any tokens (catch up whatever) then apply movement from the revealed card.
+- ? Try making it so that any time the AI has an optional direction, they ALWAYS take the path that leads them to the shortest way out of the following track piece.
+- Too many things in the market cost 7!
+- Momentus seemed too powerful (Maybe make it a "Forget this card"? but not sure. It's likely to cause crashes...), and "Added extras" seemed underwhelming, although it's a bit of a gamble as to what additional card you get, but it is diluting your pool! 
+- We were unable to buy pretty much anything from the advanced market.

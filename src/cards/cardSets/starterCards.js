@@ -5,35 +5,39 @@ import {
 } from '../cardUtils/cardUtils'
 import { MOVEMENT_ICON } from '../cardUtils/cardConstants'
 
+const {
+  WILD, STRAIGHT, LEFT, RIGHT, LEFT_OR_RIGHT, STRAIGHT_OR_LEFT, STRAIGHT_OR_RIGHT
+} = MOVEMENT_ICON
+
 function generateStarterCards () {
   const createCard = createCardSet('Starter')
   const createCopies = createAddCopiesFunction(createCard)
   return [
     createCard({
       name: 'Wild',
-      momentum: MOVEMENT_ICON.WILD,
+      momentum: WILD,
       overwriteCost: 0
     }),
     ...createCopies(2, {
       name: 'Choices',
-      momentum: MOVEMENT_ICON.LEFT_OR_RIGHT,
+      momentum: LEFT_OR_RIGHT,
       overwriteCost: 0
     }),
     ...createCopies(3, {
       name: 'Straight',
-      momentum: MOVEMENT_ICON.STRAIGHT,
+      momentum: STRAIGHT,
       xpGain: 1,
       overwriteCost: 0
     }),
     ...createCopies(2, {
       name: 'Left',
-      momentum: MOVEMENT_ICON.LEFT,
+      momentum: LEFT,
       overwriteCost: 0,
       xpGain: 1
     }),
     ...createCopies(2, {
       name: 'Right',
-      momentum: MOVEMENT_ICON.RIGHT,
+      momentum: RIGHT,
       overwriteCost: 0,
       xpGain: 1
     })
