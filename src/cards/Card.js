@@ -15,8 +15,8 @@ import {
 
 export const Card = ({ cardConfig }) => {
   return (
-    <CardBody id={cardConfig.id}>
-      {!!cardConfig.cost && <CardCost>{cardConfig.cost}</CardCost>}
+    <CardBody id={cardConfig.id} set={cardConfig.set}>
+      {/* {!!cardConfig.cost && <CardCost>{cardConfig.cost}</CardCost>} */}
       <CardSet>{cardConfig.set}</CardSet>
       {/* <CardName>{cardConfig.name}</CardName> */}
 

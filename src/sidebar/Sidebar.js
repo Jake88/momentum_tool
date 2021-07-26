@@ -3,7 +3,8 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { calculateCardStats } from '../cards/cardUtils/cardUtils'
 import { MOVEMENT_ICON } from '../cards/cardUtils/cardConstants'
 // CARDS
-import { ALL_CARDS, STARTER_CARDS, BASIC_CARDS, UNIQUE_CARDS, ADVANCED_CARDS, AI_DECK } from '../cards'
+// import { ALL_CARDS, STARTER_CARDS, BASIC_CARDS, UNIQUE_CARDS, ADVANCED_CARDS, AI_DECK } from '../cards'
+import { STARTER_CARDS, AI_DECK, AUTO_GENERATED_CARDS, POWER_CARDS, BASIC_CARDS, ADVANCED_CARDS, ABILITY_CARDS } from '../cards'
 
 import { Button, Select } from '../CommonComponents'
 import { Divider, StyledSidebar } from './Sidebar.styles'
@@ -19,13 +20,12 @@ export const Sidebar = ({ setCardList, cardList }) => {
   
   const onClick = cardList => {
     sortList(cardList)
-    console.log(calculateCardStats(cardList))
+    console.log('calculateCardStats', cardList, calculateCardStats(cardList))
   }
 
   const sortList = useCallback(cardList => {
     const sortedArray = [...cardList]
 
-    console.log('asdasd', orderBy)
     switch(orderBy) {
       case 'xpGain':
         sortedArray.sort((current, next) => current.xpGain > next.xpGain ? 1 : -1)
@@ -62,6 +62,42 @@ export const Sidebar = ({ setCardList, cardList }) => {
       </Select>
 
       <h1>Filter Cards</h1>
+       <Button
+        fullWidth
+        onClick={() => onClick(STARTER_CARDS)}
+      >
+        Starter cards
+      </Button>
+       <Button
+        fullWidth
+        onClick={() => onClick(AUTO_GENERATED_CARDS)}
+      >
+        Auto generated
+      </Button>
+      <Button
+        fullWidth
+        onClick={() => onClick(BASIC_CARDS)}
+      >
+        Basic
+      </Button>
+      <Button
+        fullWidth
+        onClick={() => onClick(ADVANCED_CARDS)}
+      >
+        Advanced
+      </Button>
+      <Button
+        fullWidth
+        onClick={() => onClick(POWER_CARDS)}
+      >
+        Power
+      </Button>
+      <Button
+        fullWidth
+        onClick={() => onClick(ABILITY_CARDS)}
+      >
+        Ability
+      </Button>
       {/* <Button
         fullWidth
         onClick={() => onClick(ALL_CARDS)}
@@ -80,7 +116,7 @@ export const Sidebar = ({ setCardList, cardList }) => {
       >
         All ChopShop cards
       </Button> */}
-      <Button
+      {/* <Button
         fullWidth
         onClick={() => {
           setCardList([])
@@ -100,14 +136,14 @@ export const Sidebar = ({ setCardList, cardList }) => {
         onClick={() => onClick(BASIC_CARDS)}
       >
         Basic Cards
-      </Button>
+      </Button> */}
       {/* <Button
         fullWidth
         onClick={() => onClick(AUTO_SHOP_CARDS)}
       >
         Auto Shop Cards
       </Button> */}
-      <Button
+      {/* <Button
         fullWidth
         onClick={() => onClick(UNIQUE_CARDS)}
       >
@@ -124,7 +160,7 @@ export const Sidebar = ({ setCardList, cardList }) => {
         onClick={() => setCardList(AI_DECK)}
       >
         Momentum AI
-      </Button>
+      </Button> */}
       {/* <Button
         fullWidth
         onClick={() => onClick(CHOP_SHOP_CARDS)}

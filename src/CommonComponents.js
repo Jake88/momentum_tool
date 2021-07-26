@@ -1,5 +1,5 @@
 import Styled from 'styled-components'
-import { GREEN, NAVY } from './constants/styles'
+import { GREEN, NAVY, LIGHT_BLUE } from './constants/styles'
 
 export const PADDING_LG = `16px`
 export const PADDING_MD = `12px`
@@ -13,7 +13,7 @@ export const Row = Styled.div`
 export const Button = Styled.button`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   padding: ${PADDING_LG};
-  background-color: ${GREEN};
+  background-color: ${LIGHT_BLUE};
   border: 1px solid ${NAVY};
   border-radius: 3px;
   color: ${NAVY};

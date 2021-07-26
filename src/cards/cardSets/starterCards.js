@@ -26,20 +26,17 @@ function generateStarterCards () {
     ...createCopies(3, {
       name: 'Straight',
       momentum: STRAIGHT,
-      xpGain: 1,
       overwriteCost: 0
     }),
-    ...createCopies(2, {
+    ...createCopies(1, {
       name: 'Left',
       momentum: LEFT,
       overwriteCost: 0,
-      xpGain: 1
     }),
-    ...createCopies(2, {
+    ...createCopies(1, {
       name: 'Right',
       momentum: RIGHT,
       overwriteCost: 0,
-      xpGain: 1
     })
   ]
 }

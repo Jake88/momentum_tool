@@ -55,12 +55,12 @@ export const MOVEMENT_ICON = {
   LEFT: {
     NAME: 'LEFT',
     IMG: IconLeft,
-    VALUE: 1
+    VALUE: 1.5
   },
   RIGHT: {
     NAME: 'RIGHT',
     IMG: IconRight,
-    VALUE: 1
+    VALUE: 1.5
   },
   STRAIGHT_OR_LEFT: {
     NAME: 'STRAIGHT_OR_LEFT',
@@ -80,7 +80,7 @@ export const MOVEMENT_ICON = {
   WILD: {
     NAME: 'WILD',
     IMG: IconWild,
-    VALUE: 4
+    VALUE: 3.5
   }
 }
 

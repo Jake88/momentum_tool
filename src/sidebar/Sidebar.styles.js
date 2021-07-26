@@ -1,5 +1,5 @@
 import Styled from 'styled-components'
-import { GREEN, NAVY } from '../constants/styles'
+import { GREEN, LIGHT_BLUE, NAVY } from '../constants/styles'
 
 import { PADDING_LG, PADDING_SM } from '../CommonComponents'
 
@@ -20,7 +20,7 @@ padding: ${PADDING_LG};
 box-sizing: border-box;
 
 h1 {
-  color: ${GREEN};
+  color: ${LIGHT_BLUE};
   text-shadow: 0px 1px 2px ${NAVY};
 }
 

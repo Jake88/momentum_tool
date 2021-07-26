@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { Card } from './cards/Card'
+import { CardAbility } from './cards/CardAbility'
 import { CardBack } from './cards/CardBack'
 import { CardSaver } from './cardSaver/CardSaver'
 import { Sidebar } from './sidebar/Sidebar'
@@ -13,9 +14,12 @@ function App () {
     <div>
       <Sidebar setCardList={setCardList} cardList={selectedCardList} />
       <AppContainer>
-        {selectedCardList.map(cardConfig => (
-          <Card key={cardConfig.id} cardConfig={cardConfig} />
-        ))}
+        {selectedCardList.map((cardConfig, index) => { 
+
+          return cardConfig && cardConfig.type === 'ABILITY'
+            ? <CardAbility key={cardConfig.id + index} cardConfig={cardConfig} />
+            : <Card key={cardConfig.id + index} cardConfig={cardConfig} />
+        })}
         <CardBack />
       </AppContainer>
     </div>

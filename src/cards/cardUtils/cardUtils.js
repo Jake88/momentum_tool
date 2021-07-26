@@ -22,13 +22,17 @@ export function createCardSet (setName = 'Setless') {
     xpGain = 0,
     ability = undefined,
     overwriteCost = undefined,
-    costModifier = 0
+    costModifier = 0,
+    type = 'MOVEMENT'
   }) {
     function getValue () {
       let cost = costModifier
       if (momentum) cost += momentum.VALUE
       if (movement.length) {
-        movement.forEach(move => cost += adjustNonMomentumMovementValue(move.VALUE))
+        movement.forEach(move => cost += move.VALUE)
+        // if (momentum && movement.length > 1) {
+        //   cost += 3
+        // }
       }
       if (ability) cost += ability.VALUE
       cost += determineValueOfXpGain(xpGain)
@@ -45,7 +49,8 @@ export function createCardSet (setName = 'Setless') {
       movement,
       xpGain,
       ability,
-      estimatedCost
+      estimatedCost,
+      type
     }
   }
 }

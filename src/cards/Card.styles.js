@@ -1,17 +1,25 @@
 import Styled from 'styled-components'
 
+const CARD_COLORS = {
+  Basic: '#DCFFF3',
+  Advanced: '#DCFFE2',
+  Power: '#FFEDE9',
+  Ability: '#FFEDE9',
+  Starter: '#eee'
+}
+
 export const CardBody = Styled.div`
   width: 25%;
   height: 300px;
   padding: 5px;
   border: 1px solid grey;
-  display: inline-block;
   box-sizing: border-box;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #efefef;
+  background: ${({set}) => CARD_COLORS[set] || 'linear-gradient(to top, #111 0%, #170E2A 50%, #111 100%)'};
 `
 
 export const CardCost = Styled.div`
@@ -29,16 +37,19 @@ export const CardCost = Styled.div`
 `
 
 export const CardSet = Styled.h2`
-  position: absolute;
   height: 30px;
   font-size: 20px;
-  margin: 0;
-  flex-grow: 1;
+  margin: 0 15%;
+  margin-bottom: auto;
+  width: 70%;
   top: 10px;
-  right: 10px;
   display: flex;
   font-weight: normal;
-  text-align: right;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
 `
 
 export const CardName = Styled.h3`
@@ -49,7 +60,7 @@ export const CardName = Styled.h3`
   flex-grow: 1;
   top: 30px;
   right: 10px;
-  text-align: right;
+  text-align: middle;
 `
 
 export const CardAbilitySection = Styled.div`
@@ -112,7 +123,7 @@ export const CardMovementSection = Styled.div`
   align-items: center;
   overflow: hidden;
   background: rgb(255,255,255);
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(178,178,178,1) 100%);
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.4) 100%);
 
   & > div {
     display: flex;
@@ -131,7 +142,7 @@ export const CardMovementSection = Styled.div`
 
 export const MomentumSection = Styled.div`
   border-left: 1px solid #999;
-  color: darkred;
+  color: #BAD531;
   background-image: url(${({src})=> src});
   margin-left: auto
 `
