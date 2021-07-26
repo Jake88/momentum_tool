@@ -39,9 +39,11 @@ export const Card = ({ cardConfig }) => {
                 <MovementIcon key={cardConfig.id + index} src={movement.IMG}/>
               ))
             )}
-            <MomentumSection src={cardConfig.momentum?.IMG}>
-              <MomentumLabel>Momentum</MomentumLabel>
-            </MomentumSection>
+            {!!cardConfig.momentum && (
+              <MomentumSection src={cardConfig.momentum?.IMG}>
+                <MomentumLabel>Momentum</MomentumLabel>
+              </MomentumSection>
+            )}
           </CardMovementSection>
         )}
       </CardAbilitySection>

@@ -6,11 +6,51 @@ import IconStraightRight from '../../images/iconography/straightRight.svg'
 import IconWild from '../../images/iconography/wild.svg'
 import IconLeftRight from '../../images/iconography/leftRight.svg'
 
+// Commented out as of 16/07. This was what I had to test when xpGain was still a thing
+// export const MOVEMENT_ICON = {
+//   STRAIGHT: {
+//     NAME: 'STRAIGHT',
+//     IMG: IconStraight,
+//     VALUE: 1.5
+//   },
+//   LEFT: {
+//     NAME: 'LEFT',
+//     IMG: IconLeft,
+//     VALUE: 1
+//   },
+//   RIGHT: {
+//     NAME: 'RIGHT',
+//     IMG: IconRight,
+//     VALUE: 1
+//   },
+//   STRAIGHT_OR_LEFT: {
+//     NAME: 'STRAIGHT_OR_LEFT',
+//     IMG: IconStraightLeft,
+//     VALUE: 3
+//   },
+//   STRAIGHT_OR_RIGHT: {
+//     NAME: 'STRAIGHT_OR_RIGHT',
+//     IMG: IconStraightRight,
+//     VALUE: 3
+//   },
+//   LEFT_OR_RIGHT: {
+//     NAME: 'LEFT_OR_RIGHT',
+//     IMG: IconLeftRight,
+//     VALUE: 2.5
+//   },
+//   WILD: {
+//     NAME: 'WILD',
+//     IMG: IconWild,
+//     VALUE: 4
+//   }
+// }
+
+
 export const MOVEMENT_ICON = {
   STRAIGHT: {
     NAME: 'STRAIGHT',
     IMG: IconStraight,
-    VALUE: 1
+    VALUE: 2
   },
   LEFT: {
     NAME: 'LEFT',
@@ -25,22 +65,22 @@ export const MOVEMENT_ICON = {
   STRAIGHT_OR_LEFT: {
     NAME: 'STRAIGHT_OR_LEFT',
     IMG: IconStraightLeft,
-    VALUE: 2
+    VALUE: 3
   },
   STRAIGHT_OR_RIGHT: {
     NAME: 'STRAIGHT_OR_RIGHT',
     IMG: IconStraightRight,
-    VALUE: 2
+    VALUE: 3
   },
   LEFT_OR_RIGHT: {
     NAME: 'LEFT_OR_RIGHT',
     IMG: IconLeftRight,
-    VALUE: 2
+    VALUE: 2.5
   },
   WILD: {
     NAME: 'WILD',
     IMG: IconWild,
-    VALUE: 3
+    VALUE: 4
   }
 }
 

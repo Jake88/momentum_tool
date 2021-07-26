@@ -4,8 +4,9 @@ import { MOVEMENT_ICON, CARD_ABILITY, POSSIBLE_STRAIGHTS, POSSIBLE_RIGHTS, POSSI
 const adjustNonMomentumMovementValue = baseValue => baseValue * .75
 
 const determineValueOfXpGain = gainAmount => {
-  const determinedCost = gainAmount * gainAmount * .5
-  return determinedCost < 1 ? 1 : determinedCost
+  // const determinedCost = gainAmount * gainAmount * .5
+  // return determinedCost < 1 ? 1 : determinedCost
+  return gainAmount
 }
 
 export function createCardSet (setName = 'Setless') {

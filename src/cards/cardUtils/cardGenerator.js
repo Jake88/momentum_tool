@@ -1,6 +1,5 @@
 import {
-  createCardSet,
-  createAddCopiesFunction
+  createCardSet
 } from '../../cardUtils/cardUtils'
 import { MOVEMENT_ICON } from '../../cardUtils/cardConstants'
 
@@ -8,49 +7,28 @@ const {
   WILD, STRAIGHT, LEFT, RIGHT, LEFT_OR_RIGHT, STRAIGHT_OR_LEFT, STRAIGHT_OR_RIGHT
 } = MOVEMENT_ICON
 
+const FLEXIBLE_OPTIONS = ['WILD', 'LEFT_OR_RIGHT', 'STRAIGHT_OR_RIGHT', 'STRAIGHT_OR_LEFT']
+
 function generateCards () {
-  const createCard = createCardSet('Advanced')
-  const createCopies = createAddCopiesFunction(createCard)
+  const createCard = createCardSet('Auto Generated')
   
   // ALL cards. 392 options.
-  const momentumOpts = ['WILD', 'STRAIGHT', 'LEFT_OR_RIGHT', 'STRAIGHT_OR_LEFT', 'STRAIGHT_OR_RIGHT', 'LEFT', 'RIGHT']
   const opts  = ['WILD', 'STRAIGHT', 'LEFT_OR_RIGHT', 'STRAIGHT_OR_LEFT', 'STRAIGHT_OR_RIGHT', 'LEFT', 'RIGHT']
-  
-  // ALL cards minus RIGHT & LEFT. 150 options.
-  // const momentumOpts = ['WILD', 'STRAIGHT', 'LEFT_OR_RIGHT', 'STRAIGHT_OR_LEFT', 'STRAIGHT_OR_RIGHT']
-  // const opts  = ['WILD', 'STRAIGHT', 'LEFT_OR_RIGHT', 'STRAIGHT_OR_LEFT', 'STRAIGHT_OR_RIGHT']
 
-
-  /*
-   Maybe a more complex algorythm needs to be determined to figure out "useful" combinations that aren't too flexible.
-
-   For example
-   |Y|X|X|
-   |Y|X|X|
-   |Y|X|X|
-
-   Where X is either straight, left or right (or maybe straightLeft or straightRight, and the values of those should be increased.). So Y is the "flexible" option to alter your position. Maybe Y should be either STRAIGHT, LEFT_OR_RIGHT, or WILD?
-   In general I think WILD value needs to be increased
-
-   What I know:
-   - Straights are more valuable that realised, because straights can actually take you around a corner and zigzag corners well, if you come in on the right path.
-   - I want the advanced cards to feel powerful and allow fast movement, but not be so flexible that any card can be used for any situation.
-   - Card movement series should really "make sense". IE zig zagging (Left | R | L) in a single card is pointless, are probably a lot less useful on a single card. 
-   - Left and Right corners are actually the least valuable, since on the wrong corner they can actually be detrimental! Straights a lot less so. 
-   - I think Wild, LEFT_OR_RIGHT and Straight_Or_Corner shoudl actually be very expensive, and potentially limited to a single symbol per card. IE (If momentum === WILD || movement.includes(WILD) then don't add a WILD, L_OR_R, S_R, S_L). This will allow a nice amount of flexibility but make actual card purchases and play order matter.
-*/
-
-  // 168
-  // const momentumOpts = ['WILD', 'STRAIGHT', 'LEFT_OR_RIGHT',]
-  // const opts  = ['WILD', 'STRAIGHT', 'LEFT_OR_RIGHT', 'STRAIGHT_OR_LEFT', 'STRAIGHT_OR_RIGHT', 'LEFT', 'RIGHT']
-
-
-  const FLEXIBLE_OPTIONS = ['WILD', 'LEFT_OR_RIGHT', 'STRAIGHT_OR_RIGHT', 'STRAIGHT_OR_LEFT']
 
   let copyPasteString = ''
   const tempArr = []
   
   for (let i = 0; i < momentumOpts.length; i++) {
+    copyPasteString += `
+      createCard({
+        momentum: ${momentumOpts[i]}
+      }),
+    `
+    tempArr.push(createCard({
+      momentum: MOVEMENT_ICON[opts[i]],
+      movement: [MOVEMENT_ICON[opts[j]]]
+    }))
     for (let j = 0; j < opts.length; j++) {
       copyPasteString += `
         createCard({
@@ -59,7 +37,7 @@ function generateCards () {
         }),
       `
       tempArr.push(createCard({
-        momentum: MOVEMENT_ICON[momentumOpts[i]],
+        momentum: MOVEMENT_ICON[opts[i]],
         movement: [MOVEMENT_ICON[opts[j]]]
       }))
       for (let k = 0; k < opts.length; k++) {
@@ -83,18 +61,18 @@ function generateCards () {
 
         // Make sure cards have similar movements to be kind of consistant.
         let isConsistent = false;
-        if (opts[k] === opts[j] || opts[k] === momentumOpts[i]) isConsistent = true
+        if (opts[k] === opts[j] || opts[k] === opts[i]) isConsistent = true
 
 
         if (limitedFlexibility && !incompatibleTurns && isConsistent) {
           copyPasteString += `
             createCard({
-              momentum: ${momentumOpts[i]},
+              momentum: ${opts[i]},
               movement: [${opts[j]}, ${opts[k]}],
             }),
           `
           tempArr.push(createCard({
-            momentum: MOVEMENT_ICON[momentumOpts[i]],
+            momentum: MOVEMENT_ICON[opts[i]],
             movement: [MOVEMENT_ICON[opts[j]], MOVEMENT_ICON[opts[k]]],
           }))
         }

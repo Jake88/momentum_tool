@@ -108,7 +108,7 @@ export const CardMovementSection = Styled.div`
   border-top: 1px solid grey;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   overflow: hidden;
   background: rgb(255,255,255);
@@ -133,6 +133,7 @@ export const MomentumSection = Styled.div`
   border-left: 1px solid #999;
   color: darkred;
   background-image: url(${({src})=> src});
+  margin-left: auto
 `
 
 export const MomentumLabel = Styled.label`

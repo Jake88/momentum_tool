@@ -12,16 +12,18 @@ function generateAllPossibleCombinations() {
   const cards = []
 
   for (let i = 0; i < opts.length; i++) {
+    cards.push(createCard({
+      movement: [opts[i]],
+      overwriteCost: 0
+    }))
     for (let j = 0; j < opts.length; j++) {
       cards.push(createCard({
-        momentum: opts[i],
-        movement: [opts[j]],
+        movement: [opts[i], opts[j]],
         overwriteCost: 0
       }))
       for (let k = 0; k < opts.length; k++) {
         cards.push(createCard({
-          momentum: opts[i],
-          movement: [opts[j], opts[k]],
+          movement: [opts[i], opts[j], opts[k]],
           overwriteCost: 0
         }))
       }
