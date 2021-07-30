@@ -20,6 +20,7 @@ const AbilitySection = Styled.div`
 `
 
 const AbilityHeader = Styled.h1`
+  margin: 5px 0;
 `
 
 const AbilityPhase = Styled.h2`
@@ -53,9 +54,37 @@ position: relative;
 const AbilityDesc = Styled.p`
   flex-grow: 1;
   text-align: center;
+  margin: 5px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  display: flex;
 `
 
 const AbilityIcon = Styled.img`
+`
+
+const Badge = Styled.span`
+  border-radius: 50px;
+  height: 16px;
+  width: 16px;
+  background-color: ${({type}) => type};
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: .6rem;
+  font-weight: bold;
+  line-height: 14px;
+`
+
+const And = Styled.p`
+  height: 20px;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 20px;
+  border-top: 1px solid #ccc;
+  margin: 0;
+  text-align: center;
+  padding: 5px;
 `
 
 export const CardAbility = ({ cardConfig }) => {
@@ -66,18 +95,21 @@ export const CardAbility = ({ cardConfig }) => {
 
       <AbilitySection>  
         <AbilityHeader>{cardConfig.ability.NAME}</AbilityHeader>
-        <AbilityPhase>{cardConfig.ability.PHASE}</AbilityPhase>
+        {/* <AbilityPhase>{cardConfig.ability.PHASE}</AbilityPhase> */}
         <AbilityDesc>{cardConfig.ability.DESC}</AbilityDesc>
         {/* <AbilityIcon></AbilityIcon> */}
       </AbilitySection>
 
         <CardAbility>
         </CardAbility>
+        <And>AND</And>
         {(!!cardConfig.movement?.length || !!cardConfig.momentum) && (
           <CardMovementSection>
             {!!cardConfig.movement?.length && (
               cardConfig.movement.map((movement, index) => (
-                <MovementIcon key={cardConfig.id + index} src={movement.IMG}/>
+                <MovementIcon key={cardConfig.id + index} src={movement.IMG}>
+                  <Badge type={index === 2 ? 'gold' : index === 1 ? 'silver' : 'brown'}>{index === 2 ? '<=1st' : index === 1 ? '<=2nd' : '<=3rd'}</Badge>
+                </MovementIcon>
               ))
             )}
           </CardMovementSection>

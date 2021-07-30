@@ -5,6 +5,9 @@ import { MOVEMENT_ICON } from '../cards/cardUtils/cardConstants'
 // CARDS
 // import { ALL_CARDS, STARTER_CARDS, BASIC_CARDS, UNIQUE_CARDS, ADVANCED_CARDS, AI_DECK } from '../cards'
 import { STARTER_CARDS, AI_DECK, AUTO_GENERATED_CARDS, POWER_CARDS, BASIC_CARDS, ADVANCED_CARDS, ABILITY_CARDS } from '../cards'
+import { CAR_UPGRADES } from '../abilities/carUpgrades'
+import { DRIVERS } from '../abilities/driverPowers'
+
 
 import { Button, Select } from '../CommonComponents'
 import { Divider, StyledSidebar } from './Sidebar.styles'
@@ -98,6 +101,12 @@ export const Sidebar = ({ setCardList, cardList }) => {
       >
         Ability
       </Button>
+      <Button
+        fullWidth
+        onClick={() => onClick(CAR_UPGRADES)}
+      >
+        Card upgrades
+      </Button>
       {/* <Button
         fullWidth
         onClick={() => onClick(ALL_CARDS)}
@@ -169,6 +178,15 @@ export const Sidebar = ({ setCardList, cardList }) => {
       </Button> */}
 
       {/* <textarea value={stats} /> */}
+      <h1>TODO list</h1>
+      <ol>
+        <li>Add driver cards</li>
+        <li>Add unique cards</li>
+        <li>Add car upgrade / mechanic market</li>
+        <li>Create new track pieces</li>
+        <li></li>
+        <li></li>
+      </ol>
     </StyledSidebar>
   )
 }

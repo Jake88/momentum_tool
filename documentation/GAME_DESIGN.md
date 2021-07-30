@@ -70,8 +70,8 @@ To setup the market follow these steps:
 10. Do my cards actually need names???
 11. As an idea to try, maybe I scrap the "Deck building" mechanic, and remain with starting deck. Then as players drive and pick up bonuses / negatives on the road, they draw from good / bad decks which add to their race deck. They can still draw unique cards at the end point. 
 12. Grapple COULD just drag you to the tile behind that car?
-
-13. New style of gameplay to try:
+13. A "quick-play" mode for advanced players. Skip the "basic" first lap and instead start the game with the advanced setup (as if everyone had crossed the finish line once). This means movement will escalate quickly. The AI deck should have all 1 and 2 symbol cards removed.
+14. New style of gameplay to try:
    1. Remove all ability cards and create basic / advanced deck of pure movement cards.
    2. Still need to balance xpGain with cost though!
    3. Add a way of placing positive and negative markers on track pieces.This could be done add tiles with 1-6 transparent numbers, rolling dice and adding a + or - token to that tile. Or it could be done at random by the player however they want to set up, or they could use the scenario book to set them up? 
@@ -192,3 +192,73 @@ New movement rule for turning against a corner. It ends up being a lane change i
   - More variance in cost (some higher cost, higher power cards would be good)
   - Wilds etc for momentum
   - More "structured" cards to provide what is hopefully more meaningful purchases.
+
+  
+## SEVENTH play test
+Fun rating 4/5 (at the start), then not fun after the cars split apart.
+
+Start at 9:10
+first lap, 5 rounds. 10:26
+End 10:57
+
+Only just passed PINK AI after the finish line at game end. 
+
+2 A.I using no momentum AI deck.
+
+### Feature changes
+New Basic / Advanced decks with no abilities, adjusted with no XP gains or costs.
+
+No unique cards
+
+### feedback
+- Poentially make crashing more consequential
+- Need to create diagrams for each bump scenario
+- Could try some victory points
+  - Victory points can be the delta of "estimatedCost" on cards from the market?
+  - Each time you crash lose x victory points?
+  - At the end of the race each victory point allows you to move 1 WILD space in an attempt to pass the leader. OR traditional victory points styles, with the first to cross the finish line getting X where X is the number of players, and backwards or something 
+- When does boost (catch up tokens) happen
+- Should AI crash or interact with obsticles?
+
+- "SHIFT" power card was very impactful. Maybe a bit too "take that" 
+### Actions
+- DONE Try making crash reset happen in the same lane to prevent "strategic crashing"
+- NOT NEEDED Need to add "During planning" phase for the Power movement cards.
+- DONE Make a second AI deck (just in TS) that has duplicates of the single and double symbol cards. This will slow down the AI. Then that AI gains momentum after the first lap.
+- DONE-ish Merge power card movement and abilities together. Add an "AND/OR" line on these cards where 'or' is for the current game leader, and 'AND' is for everyone else. IE a catchup mechanic. What stops current leader stocking up on these cards and playing them in 2nd place though?
+- Split "driver abilities" into two decks. Cars (upgrades) and drivers. Drivers deal with all things in the drive track and cards etc. Car cards deal with all things to do with the track, movement, and interactions between cars.
+- Make sure cards that interfere with other players directly (hooks, shifts powers etc) get marked with CHAOS expansion and can be added removed as desired.
+- Create visual diagrams / examples to explain how BUMPs work on straight and curved tiles, and how movement types work on straight and curved tiles.
+- DONE Try having a hand size of only 4 to reduce turn time and cognitive load
+
+
+## EIGHTH play test
+Fun rating 0/5 
+
+Start at 10:20. Reset at 11:00 since game wasn't fun.
+first lap, x rounds. 11:38
+End 12:20
+
+2 A.I using momentum AI deck w/ duplicate of single and double symbol cards.
+
+### Feature changes
+- Crashes respawn in the same lane.
+- AI deck now has duplicate single / double symbol cards.
+- Hand size of 4 (so 4 cards at a time being played.)
+- Playing with drivers and single car upgrades
+  - Jake: DRIVER = "Make pain your friend", UPGRADE = "Never wrong"
+  - Miss: DRIVER = "", UPGRADE = "Teleporter"
+
+### feedback
+- Teleporter is too weak, probably get rid of.
+- Twins is too fiddley
+- Respawning is causing some confusion. Maybe crashing should put you back one space in the same lane?
+- The bump mechanic is still difficult, when bumping from a straight tile into a corner tile.
+- "Never wrong" seems too powerful. Maybe first time each round, or first time each card?
+- AI too slow. Maybe needs a mechanic where when switching to Advanced spike you remove all single / double cards.
+- Balance seems a big issue, while the race was surprisingly close it felt like the powers were too swingy.
+- I think single symbol could be removed from the basic market. You are simply NEVER going to choose a single. MAYBE a single wild, but even that is super unlikely I think.
+- Need to change the cross over tile to be a 5 lane cross over to reduce confusion.
+- Game pace seemed reasonable, but again I felt like the powers made it overly complex and didn't really feel fun.
+
+### Actions

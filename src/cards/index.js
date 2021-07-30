@@ -22,6 +22,8 @@ const BASIC_CARDS = []
 const ADVANCED_CARDS = []
 const POWER_CARDS = []
 
+let abilityCardCounter = 0;
+
 const createLists = () => {
   AUTO_GENERATED_CARDS.forEach(card => {
     if (card.cost < 3) {
@@ -38,11 +40,13 @@ const createLists = () => {
       ADVANCED_CARDS.push(card)
       // if (card.cost < 9) ADVANCED_CARDS.push(card)
     } else if (card.cost >= 9) {
-      card.set = 'Power'
-      card.id ='P' + POWER_CARDS.length
-      card.movement.push(card.momentum)
-      card.momentum = undefined
-      POWER_CARDS.push(card)
+      ABILITY_CARDS[abilityCardCounter].movement = [...card.movement, card.momentum]
+      abilityCardCounter++
+      // card.set = 'Power'
+      // card.id ='P' + POWER_CARDS.length
+      // card.movement.push(card.momentum)
+      // card.momentum = undefined
+      // POWER_CARDS.push(card)
     }
   })
 }

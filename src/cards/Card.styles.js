@@ -5,13 +5,13 @@ const CARD_COLORS = {
   Advanced: '#DCFFE2',
   Power: '#FFEDE9',
   Ability: '#FFEDE9',
-  Starter: '#eee'
+  Starter: '#eee',
+  Upgrade: '#aae'
 }
 
 export const CardBody = Styled.div`
   width: 25%;
   height: 300px;
-  padding: 5px;
   border: 1px solid grey;
   box-sizing: border-box;
   position: relative;
@@ -38,7 +38,7 @@ export const CardCost = Styled.div`
 
 export const CardSet = Styled.h2`
   height: 30px;
-  font-size: 20px;
+  font-size: 1rem;
   margin: 0 15%;
   margin-bottom: auto;
   width: 70%;
@@ -154,6 +154,7 @@ export const MomentumLabel = Styled.label`
 `
 
 export const MovementIcon = Styled.div`
+    position: relative;
     background-image: url(${({src})=> src});
     width: 25%;
 `

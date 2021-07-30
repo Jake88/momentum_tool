@@ -35,7 +35,7 @@ function generateCards () {
     ...createCopies(3, {ability: FORGET, type: 'ABILITY'}),
     ...createCopies(3, {ability: HOOK, type: 'ABILITY'}),
     ...createCopies(3, {ability: KAGINAWA, type: 'ABILITY'}),
-    ...createCopies(3, {ability: SHIFTER, type: 'ABILITY'}),
+    ...createCopies(2, {ability: SHIFTER, type: 'ABILITY'}),
   ]
 }
 

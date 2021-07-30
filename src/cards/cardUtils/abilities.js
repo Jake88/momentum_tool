@@ -35,8 +35,8 @@ export const CARD_ABILITY = {
   SHIELD: {
     NAME: `SHIELD`,
     PHASE: ANY,
-    DESC: 
-      `SHIELD against an incoming effect`,
+    DESC: `Gain a SHIELD token`,
+      //`SHIELD against an incoming effect`,
     VALUE: 2
   },
 
@@ -52,14 +52,14 @@ export const CARD_ABILITY = {
     NAME: `FORGET`,
     PHASE: LEARNING,
     DESC: 
-      `You may FORGET a card in your journey`,
+      `You may FORGET a card in your journey during your LEARNING phase`,
     VALUE: 3
   },
   DRAW: {
     NAME: `DRAW`,
     PHASE: DRAW,
     DESC: 
-      `DRAW an additional card`,
+      `DRAW an additional card during your next DRAW phase`,
     VALUE: 3
   },
   GRAPPLE: {
@@ -67,6 +67,13 @@ export const CARD_ABILITY = {
     PHASE: PLANNING,
     DESC: 
       `GRAPPLE to the next car infront`,
+    VALUE: 5
+  },
+  GRAPPLE: {
+    NAME: `GPS`,
+    PHASE: REVEAL,
+    DESC: 
+      `Move forward 3 tiles in your current lane`,
     VALUE: 5
   },
 
