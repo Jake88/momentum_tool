@@ -172,4 +172,11 @@ export const CAR_UPGRADES = [
     desc: 'At round start, gain 1 obsticle token.', // Too annoying???
     expansion: 'CHAOTIC'
   },
+  {
+    id: 'CU2',// Is this a card car or driver??
+    type: 'UPGRADE',
+    name: 'Powerful',
+    estimatePower: '4',
+    desc: 'When hitting a powerup, draw two power cards and discard one.'
+  },
 ]

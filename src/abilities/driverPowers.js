@@ -8,27 +8,25 @@
 
  // once per drive you may turn 1 symbol into a wild??? 
 
+const depricated_DRIVERS = [
+
+]
 export const DRIVERS = [
   {
-    id: 'CU0', // Is this a card car or driver??
-    type: 'UPGRADE',
+    id: 'CU0',
+    type: 'DRIVER',
     name: 'Druid',
-    estimatePower: '3',
+    estimatePower: '1',
     desc: 'Momentum wilds can be re-decided when resolving the momentum.'
-  },
-  {
-    id: 'CU2',// Is this a card car or driver??
-    type: 'UPGRADE',
-    name: 'Powerful',
-    estimatePower: '4',
-    desc: 'When hitting a powerup, draw two power cards and discard one.'
+    // Or, if we are trying to make everything feel powerful, boost every wild?
+    // Or any "optional" symbol can be re-determined.
   },
   {
     id: 'CU3',
     type: 'DRIVER', //???
     name: 'Transmuter',
     estimatePower: '1',
-    desc: 'When resolving a card with 2 of the same symbols, you may choose to treat those as a single wild instead.' // What happens to momentum?
+    desc: 'When resolving a card with 2 of the same symbols, you may choose to treat those as a single wild instead. If momentum symbol is used treat the wild result as momentum.' // What happens to momentum?
   },
   {
     id: 'CU4',

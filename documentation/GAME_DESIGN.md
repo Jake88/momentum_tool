@@ -76,7 +76,19 @@ To setup the market follow these steps:
    2. Still need to balance xpGain with cost though!
    3. Add a way of placing positive and negative markers on track pieces.This could be done add tiles with 1-6 transparent numbers, rolling dice and adding a + or - token to that tile. Or it could be done at random by the player however they want to set up, or they could use the scenario book to set them up? 
    4.  When hitting that you will either draw from the + deck or the - deck and do the effect or in some cases hold onto the card for later boost. 
-
+### Just some new thoughts 31/07...
+ 15. All 3 phases are feeling a little boring.
+    1. The Planning phase feels the most interesting, but currently the market offers so many flexible options that towards the end of the game you end up playing a bunch of cards that let you drive anywhere, and you don't really care. It is more interesting towards the start of the game. The power up options and oil slick / obsticles are interesting because they add points of interest to the track so it's not just a single "best line".
+      1. 1. If we can refine the market and make more interesting choices there, this planning phase should be more interesting as all 
+    2. The Reveal phase is OK but because there is practically no interaction between cars with no abilities, this "revealing" doesn't seem interesting either. Potentially this is just because it's a two player game and revealing AI cards doesn't seem interesting, and the one other person revealing (Miss) doesn't feel all that exciting.
+      2. 1. More cards that offer "surprise" would be good here I think. The Chaos expansion would ramp this up significantly, but there might be a way to make this more exciting either with combo cards (see 3.1), or more non-chaotic power cards. 
+    3. The market phase feels faiiiiirly unexciting. You are basically looking for A) the most symbols and then B) the most flexibility. Beyond that the cards are kind of the same. It just doesn't feel all that interesting.
+      3. 1. Potential option here. Add 3 types of cards "Top speed", "Handling" and "Strategy"(or something?). This could also be extended if abilities return to the market. These can each specialise in a certain type of card. Example "Top speed" would have mostly "STRAIGHT" cards. "Handling" would have mostly corner cards, and "Strategy" would have mostly flexible cards, obviously at a cost. Comboing cards could provide additional benefits. For example maybe momentum is only gained when combined with cards of the same type. Or maybe some cards have additional "combo" abilities that happen if the left / right adjacent card matches a certain colour. The idea here is to create more meaningful decisions when taking cards from the market, other than just "Most symbols, most flexibility".
+      3. 2. Another option here is adding those victory points to cards. So each card in the basic market has an est value 3-5. All "3" value cards provide additional  2 VP, "4" value cards have 1 VP, and 5 have 0. This makes the more flexible and "powerful" cards potentially less desirable. These Victory Points can either be stored fuel or something that can be used to sprint at the end, or just a traditional VP way of winning could be trialed.
+      3. 3. Acceleration: This is all about modifying the first card in your drive
+      3. 4. Top speed: This is all about modifying the last card in your drive
+      3. 5. Potentially different drivers have different starter decks that come with different colours. For example if acceleration is blue themed, a driver with 4 acceleration, 2 handling and 1 top speed in their starting deck would have starting cards that match those things. 
+  18. 
 ## Design Notes:
 1. 
 
@@ -260,5 +272,7 @@ End 12:20
 - I think single symbol could be removed from the basic market. You are simply NEVER going to choose a single. MAYBE a single wild, but even that is super unlikely I think.
 - Need to change the cross over tile to be a 5 lane cross over to reduce confusion.
 - Game pace seemed reasonable, but again I felt like the powers made it overly complex and didn't really feel fun.
+- Alternative option for AI: Only duplicate the single movement cardsin the movement deck, and add the text "If in advanced mode, draw and extra AI card". 
 
 ### Actions
+- Next game play without any driver / upgrades to see if the catch up mechanic and power up cards feel OK or not. Maybe even play with 4 "players" as opposed to two AI.
