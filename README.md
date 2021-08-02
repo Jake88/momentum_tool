@@ -35,9 +35,9 @@ After creating a set of cards, we can get some stats for those cards using the d
 ```js
 {
   movementStats, // an object that contains the number of each type of movement in this card set, and what percentage those types make up.
-    cost, // an object that provides the sum of all card costs, the average cost of each card, and the average cost based on player hand size.
-    estimatedCost, // an object that provides the sum of all card ESTIMATED COSTS, ...
-    xpGain // an object that provides the sum of all card XP GAINS, ... (particularly useful for figuring out what things should cost)
+  cost, // an object that provides the sum of all card costs, the average cost of each card, and the average cost based on player hand size.
+  estimatedCost, // an object that provides the sum of all card ESTIMATED COSTS, ...
+  xpGain // an object that provides the sum of all card XP GAINS, ... (particularly useful for figuring out what things should cost)
 }
 ```
 
@@ -46,6 +46,16 @@ After creating a set of cards, we can get some stats for those cards using the d
 This is still a work in progress, but currently we can map through a set of cards and create a `<Card cardConfig={cardConfig}>` element, which will slap it on the page easy enough.
 This will only get tricky as different cards are introduced.
 
+
+# Directory structure
+- /data
+  - /cardSets
+  - /abilities
+  - constants.js
+- /components
+  - /cardTypes
+  - common.js
+- /utils
 # Create React App stuff..
 
 ### `npm start`

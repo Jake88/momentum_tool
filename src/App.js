@@ -10,11 +10,14 @@ import { Sidebar } from './sidebar/Sidebar'
 import { AppContainer } from './App.styles'
 import { FeedbackForm } from './FeedbackForm/FeedbackForm'
 
+import {DriveCard} from './components/cardTypes/DriveCard'
+
 function App () {
   const [selectedCardList, setCardList] = useState([])
   return (
     <div>
-      <Sidebar setCardList={setCardList} cardList={selectedCardList} />
+      <DriveCard/>
+      {/* <Sidebar setCardList={setCardList} cardList={selectedCardList} />
       <AppContainer>
         {selectedCardList.map((cardConfig, index) => { 
           if (cardConfig && cardConfig.type === 'ABILITY') return <CardAbility key={cardConfig.id + index} cardConfig={cardConfig} />
@@ -23,7 +26,7 @@ function App () {
         })}
         <CardBack />
       </AppContainer>
-      <FeedbackForm />
+      <FeedbackForm /> */}
     </div>
   )
 }
