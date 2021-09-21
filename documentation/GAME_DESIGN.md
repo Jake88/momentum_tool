@@ -1,7 +1,7 @@
 # Drivers Momentum
 
 # Blurb (WIP)
-Take the wheel with this fast paced racing game with deck building, track building and programming mechanics. You and up to 7? friends race around a custom built track, gaining momentum, learning, bumping, crashing and likely causing chaos as you go.
+Take the wheel with this fast paced racing game with deck building, track building and programming mechanics. You and up to 4? friends race around a custom built track, gaining momentum, learning, bumping, crashing and likely causing chaos as you go.
 
 Due to the modular nature of the track and deck building elements, each race will play out differently.
 
@@ -88,7 +88,10 @@ To setup the market follow these steps:
       3. 3. Acceleration: This is all about modifying the first card in your drive
       3. 4. Top speed: This is all about modifying the last card in your drive
       3. 5. Potentially different drivers have different starter decks that come with different colours. For example if acceleration is blue themed, a driver with 4 acceleration, 2 handling and 1 top speed in their starting deck would have starting cards that match those things. 
-  18. 
+  
+### suggestions from Josh
+  16. A "pitstop" could be done by handing over a number of cards before the planning phase. This could be done at random to make it more impactful? During a pitstop you can buy cards from the market to upgrade your car. Thematically this is called "going long" where you are deciding to trade off the benefits of new tyres etc for the additional time you get to spend on the road. This would be similar to the game, you are choosing to "pay" a number of cards (aka potential movement that turn) to instead go and buy a card from the market. To implement this you probably need to have coins to buy tinhgs from the market, otherwise I'm not sure how it would balance out. Maybe the cards you pay each have a value on them and that value builds up to the cost of the card you purchase?? Could work, could work. So you can do a "quick" pitstop for a cheaper card or something.. INTERESTING.
+  17. Some themeatic options - oversteer, understeer, something about locking up with makes your tyre uneven.
 ## Design Notes:
 1. 
 
