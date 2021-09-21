@@ -9,7 +9,7 @@ import { CAR_UPGRADES } from '../abilities/carUpgrades'
 import { DRIVERS } from '../abilities/driverPowers'
 
 
-import { Button, Select } from '../CommonComponents'
+import { Button, Select } from '../../CommonComponents'
 import { Divider, StyledSidebar } from './Sidebar.styles'
 import { CardSaver } from '../cardSaver/CardSaver'
 

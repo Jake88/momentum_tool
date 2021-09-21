@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import DTI from 'dom-to-image'
 import FileSaver from 'file-saver'
 
-import { Button, Input, Row } from '../CommonComponents'
+import { Button, Input, Row } from '../../CommonComponents'
 
 export const CardSaver = () => {
   const [inputValue, setInputValue] = useState('')

@@ -1,7 +1,7 @@
 import Styled from 'styled-components'
-import { GREEN, LIGHT_BLUE, NAVY } from '../constants/styles'
+import { GREEN, LIGHT_BLUE, NAVY } from '../../constants/styles'
 
-import { PADDING_LG, PADDING_SM } from '../CommonComponents'
+import { PADDING_LG, PADDING_SM } from '../../CommonComponents'
 
 export const StyledSidebar = Styled.aside`
 position: fixed;
