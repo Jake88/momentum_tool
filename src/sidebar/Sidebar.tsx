@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 
 import { calculateCardStats } from '../cards/cardUtils/cardUtils'
 import { MOVEMENT_ICON } from '../cards/cardUtils/cardConstants'
-import { CardConfig } from '../types/card.types'
+import { CardConfig, CardStats } from '../types/card.types'
 // CARDS
 import {
   ALL_CARDS,
@@ -14,9 +14,11 @@ import {
   CHOP_SHOP_CARDS
 } from '../cards'
 
-import { Button, Select } from '../CommonComponents'
+import { Button, Select, Input } from '../CommonComponents'
 import { Divider, StyledSidebar } from './Sidebar.styles'
 import { CardSaver } from '../cardSaver/CardSaver'
+import { StatsPanel } from './StatsPanel'
+import { useTheme } from '../context/ThemeContext'
 
 const MOVEMENT_TIER: Record<string, number> = {}
 Object.values(MOVEMENT_ICON).forEach((icon, index) => {
@@ -29,18 +31,65 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
+  const { toggleTheme, isDark } = useTheme()
   const [orderBy, setOrderBy] = useState<string>('')
+  const [showStats, setShowStats] = useState<boolean>(false)
+  const [currentStats, setCurrentStats] = useState<CardStats | null>(null)
+  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [costFilter, setCostFilter] = useState<{ min: number; max: number }>({ min: 0, max: 20 })
+  const [xpFilter, setXpFilter] = useState<{ min: number; max: number }>({ min: 0, max: 10 })
+
+  const applyFilters = useCallback((cards: CardConfig[]): CardConfig[] => {
+    let filtered = cards
+
+    // Search filter
+    if (searchTerm.trim()) {
+      const term = searchTerm.toLowerCase()
+      filtered = filtered.filter(card =>
+        card.name.toLowerCase().includes(term) ||
+        card.ability?.DESC.toLowerCase().includes(term) ||
+        card.set.toLowerCase().includes(term)
+      )
+    }
+
+    // Cost filter
+    filtered = filtered.filter(card =>
+      card.cost >= costFilter.min && card.cost <= costFilter.max
+    )
+
+    // XP filter
+    filtered = filtered.filter(card =>
+      card.xpGain >= xpFilter.min && card.xpGain <= xpFilter.max
+    )
+
+    return filtered
+  }, [searchTerm, costFilter, xpFilter])
 
   const onClick = (cardList: CardConfig[]) => {
-    sortList(cardList)
-    console.log(calculateCardStats(cardList))
+    const filtered = applyFilters(cardList)
+    sortList(filtered)
+    // Calculate and store stats
+    if (filtered.length > 0) {
+      const stats = calculateCardStats(filtered)
+      setCurrentStats(stats)
+      if (process.env.NODE_ENV === 'development') {
+        console.log('[Dev] Card Stats:', stats)
+      }
+    } else {
+      setCurrentStats(null)
+    }
+  }
+
+  const clearFilters = () => {
+    setSearchTerm('')
+    setCostFilter({ min: 0, max: 20 })
+    setXpFilter({ min: 0, max: 10 })
   }
 
   const sortList = useCallback(
     (cardList: CardConfig[]) => {
       const sortedArray = [...cardList]
 
-      console.log('asdasd', orderBy)
       switch (orderBy) {
         case 'xpGain':
           sortedArray.sort((current, next) =>
@@ -71,8 +120,49 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
   return (
     <StyledSidebar>
       <h1>Momentum Tool</h1>
+      <Button fullWidth onClick={toggleTheme} style={{ marginBottom: '10px' }}>
+        {isDark ? '☀️ Light Mode' : '🌙 Dark Mode'}
+      </Button>
       <Divider />
       <CardSaver />
+      <Divider />
+
+      <h1>Search & Filter</h1>
+      <Input
+        type="text"
+        placeholder="Search cards..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{ width: '100%', marginBottom: '8px', marginRight: 0 }}
+      />
+
+      <label style={{ color: '#90EE90', fontSize: '12px', marginTop: '8px', display: 'block' }}>
+        Cost: {costFilter.min} - {costFilter.max}
+      </label>
+      <Input
+        type="range"
+        min="0"
+        max="20"
+        value={costFilter.max}
+        onChange={(e) => setCostFilter({ ...costFilter, max: parseInt(e.target.value) })}
+        style={{ width: '100%', marginBottom: '8px', marginRight: 0 }}
+      />
+
+      <label style={{ color: '#90EE90', fontSize: '12px', marginTop: '8px', display: 'block' }}>
+        XP: {xpFilter.min} - {xpFilter.max}
+      </label>
+      <Input
+        type="range"
+        min="0"
+        max="10"
+        value={xpFilter.max}
+        onChange={(e) => setXpFilter({ ...xpFilter, max: parseInt(e.target.value) })}
+        style={{ width: '100%', marginBottom: '8px', marginRight: 0 }}
+      />
+
+      <Button fullWidth onClick={clearFilters} style={{ marginTop: '8px' }}>
+        Clear Filters
+      </Button>
       <Divider />
 
       <h1>Order by</h1>
@@ -132,7 +222,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
         Chop shop
       </Button>
 
-      {/* <textarea value={stats} /> */}
+      <Divider />
+      <StatsPanel
+        stats={currentStats}
+        isOpen={showStats}
+        onToggle={() => setShowStats(!showStats)}
+      />
     </StyledSidebar>
   )
 }

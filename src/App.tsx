@@ -5,14 +5,16 @@ import { CardBack } from './cards/CardBack'
 import { CardSaver } from './cardSaver/CardSaver'
 import { Sidebar } from './sidebar/Sidebar'
 import { CardConfig } from './types/card.types'
+import { ThemeProvider, useTheme } from './context/ThemeContext'
 
 import { AppContainer } from './App.styles'
 
-function App() {
+function AppContent() {
   const [selectedCardList, setCardList] = useState<CardConfig[]>([])
+  const { theme } = useTheme()
 
   return (
-    <div>
+    <div style={{ backgroundColor: theme.colors.background, minHeight: '100vh' }}>
       <Sidebar setCardList={setCardList} cardList={selectedCardList} />
       <AppContainer>
         {selectedCardList.map((cardConfig) => (
@@ -21,6 +23,14 @@ function App() {
         <CardBack />
       </AppContainer>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   )
 }
 
