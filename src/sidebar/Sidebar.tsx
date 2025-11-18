@@ -38,6 +38,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
   const [searchTerm, setSearchTerm] = useState<string>('')
   const [costFilter, setCostFilter] = useState<{ min: number; max: number }>({ min: 0, max: 20 })
   const [xpFilter, setXpFilter] = useState<{ min: number; max: number }>({ min: 0, max: 10 })
+  const [baseCardList, setBaseCardList] = useState<CardConfig[]>([]) // Store unfiltered cards
 
   const applyFilters = useCallback((cards: CardConfig[]): CardConfig[] => {
     let filtered = cards
@@ -66,18 +67,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
   }, [searchTerm, costFilter, xpFilter])
 
   const onClick = (cardList: CardConfig[]) => {
-    const filtered = applyFilters(cardList)
-    sortList(filtered)
-    // Calculate and store stats
-    if (filtered.length > 0) {
-      const stats = calculateCardStats(filtered)
-      setCurrentStats(stats)
-      if (process.env.NODE_ENV === 'development') {
-        console.log('[Dev] Card Stats:', stats)
-      }
-    } else {
-      setCurrentStats(null)
-    }
+    setBaseCardList(cardList) // Store the base list for reapplying filters
   }
 
   const clearFilters = () => {
@@ -86,36 +76,43 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
     setXpFilter({ min: 0, max: 10 })
   }
 
-  const sortList = useCallback(
-    (cardList: CardConfig[]) => {
-      const sortedArray = [...cardList]
-
-      switch (orderBy) {
-        case 'xpGain':
-          sortedArray.sort((current, next) =>
-            current.xpGain > next.xpGain ? 1 : -1
-          )
-          break
-        case 'cost':
-          sortedArray.sort((current, next) => (current.cost > next.cost ? 1 : -1))
-          break
-        case 'movement':
-          sortedArray.sort((current, next) =>
-            MOVEMENT_TIER[current.momentum?.NAME || ''] >
-            MOVEMENT_TIER[next.momentum?.NAME || '']
-              ? 1
-              : -1
-          )
-      }
-
-      setCardList(sortedArray)
-    },
-    [orderBy, setCardList]
-  )
-
+  // Apply filters and sorting whenever filters, search, or orderBy changes
   useEffect(() => {
-    sortList(cardList)
-  }, [sortList])
+    if (baseCardList.length === 0) return
+
+    const filtered = applyFilters(baseCardList)
+    const sorted = [...filtered]
+
+    switch (orderBy) {
+      case 'xpGain':
+        sorted.sort((current, next) => (current.xpGain > next.xpGain ? 1 : -1))
+        break
+      case 'cost':
+        sorted.sort((current, next) => (current.cost > next.cost ? 1 : -1))
+        break
+      case 'movement':
+        sorted.sort((current, next) =>
+          MOVEMENT_TIER[current.momentum?.NAME || ''] >
+          MOVEMENT_TIER[next.momentum?.NAME || '']
+            ? 1
+            : -1
+        )
+        break
+    }
+
+    setCardList(sorted)
+
+    // Calculate and store stats
+    if (sorted.length > 0) {
+      const stats = calculateCardStats(sorted)
+      setCurrentStats(stats)
+      if (process.env.NODE_ENV === 'development') {
+        console.log('[Dev] Card Stats:', stats)
+      }
+    } else {
+      setCurrentStats(null)
+    }
+  }, [baseCardList, applyFilters, orderBy, setCardList])
 
   return (
     <StyledSidebar>
