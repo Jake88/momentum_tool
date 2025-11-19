@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
+// @ts-ignore - Using React 17 API with React 18+ types
 ReactDOM.render(
   <React.StrictMode>
     <App />

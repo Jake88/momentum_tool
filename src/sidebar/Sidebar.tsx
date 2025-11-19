@@ -18,6 +18,7 @@ import { Button, Select, Input } from '../CommonComponents'
 import { Divider, StyledSidebar } from './Sidebar.styles'
 import { CardSaver } from '../cardSaver/CardSaver'
 import { StatsPanel } from './StatsPanel'
+import { CardEditor } from '../components/CardEditor'
 import { useTheme } from '../context/ThemeContext'
 
 const MOVEMENT_TIER: Record<string, number> = {}
@@ -38,7 +39,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
   const [searchTerm, setSearchTerm] = useState<string>('')
   const [costFilter, setCostFilter] = useState<{ min: number; max: number }>({ min: 0, max: 20 })
   const [xpFilter, setXpFilter] = useState<{ min: number; max: number }>({ min: 0, max: 10 })
-  const [baseCardList, setBaseCardList] = useState<CardConfig[]>([]) // Store unfiltered cards
+  const [baseCardList, setBaseCardList] = useState<CardConfig[]>([])
+  const [showEditor, setShowEditor] = useState<boolean>(false)
+  const [customCards, setCustomCards] = useState<CardConfig[]>(() => {
+    const saved = localStorage.getItem('momentum-custom-cards')
+    return saved ? JSON.parse(saved) : []
+  }) // Store unfiltered cards
 
   const applyFilters = useCallback((cards: CardConfig[]): CardConfig[] => {
     let filtered = cards
@@ -74,6 +80,22 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
     setSearchTerm('')
     setCostFilter({ min: 0, max: 20 })
     setXpFilter({ min: 0, max: 10 })
+  }
+
+  const handleSaveCard = (card: CardConfig) => {
+    const updated = [...customCards, card]
+    setCustomCards(updated)
+    localStorage.setItem('momentum-custom-cards', JSON.stringify(updated))
+    setShowEditor(false)
+    // Optionally show the new card immediately
+    onClick(updated)
+  }
+
+  const clearCustomCards = () => {
+    if (window.confirm('Delete all custom cards? This cannot be undone.')) {
+      setCustomCards([])
+      localStorage.removeItem('momentum-custom-cards')
+    }
   }
 
   // Apply filters and sorting whenever filters, search, or orderBy changes
@@ -115,14 +137,23 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
   }, [baseCardList, applyFilters, orderBy, setCardList])
 
   return (
-    <StyledSidebar>
-      <h1>Momentum Tool</h1>
-      <Button fullWidth onClick={toggleTheme} style={{ marginBottom: '10px' }}>
-        {isDark ? '☀️ Light Mode' : '🌙 Dark Mode'}
-      </Button>
-      <Divider />
-      <CardSaver />
-      <Divider />
+    <>
+      <CardEditor
+        isOpen={showEditor}
+        onClose={() => setShowEditor(false)}
+        onSave={handleSaveCard}
+      />
+      <StyledSidebar>
+        <h1>Momentum Tool</h1>
+        <Button fullWidth onClick={toggleTheme} style={{ marginBottom: '10px' }}>
+          {isDark ? '☀️ Light Mode' : '🌙 Dark Mode'}
+        </Button>
+        <Button fullWidth onClick={() => setShowEditor(true)} style={{ marginBottom: '10px', backgroundColor: '#5cb85c' }}>
+          ✨ Create New Card
+        </Button>
+        <Divider />
+        <CardSaver />
+        <Divider />
 
       <h1>Search & Filter</h1>
       <Input
@@ -176,6 +207,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
       </Select>
 
       <h1>Filter Cards</h1>
+      {customCards.length > 0 && (
+        <>
+          <Button fullWidth onClick={() => onClick(customCards)} style={{ backgroundColor: '#5cb85c' }}>
+            Custom Cards ({customCards.length})
+          </Button>
+          <Button fullWidth onClick={clearCustomCards} style={{ backgroundColor: '#d9534f', fontSize: '11px', padding: '8px' }}>
+            🗑️ Clear Custom
+          </Button>
+        </>
+      )}
       <Button fullWidth onClick={() => onClick(ALL_CARDS)}>
         All
       </Button>
@@ -225,6 +266,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ setCardList, cardList }) => {
         isOpen={showStats}
         onToggle={() => setShowStats(!showStats)}
       />
-    </StyledSidebar>
+      </StyledSidebar>
+    </>
   )
 }

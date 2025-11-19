@@ -4,16 +4,17 @@ import {
   calculateCardStats
 } from '../cardUtils/cardUtils'
 import { MOVEMENT_ICON } from '../cardUtils/cardConstants'
+import { CardConfig } from '../../types/card.types'
 
-function generateStarterCards () {
+function generateStarterCards(): CardConfig[] {
   const createCard = createCardSet('Learner')
   const createCopies = createAddCopiesFunction(createCard)
   return [
-    createCopies(20, {
+    ...createCopies(20, {
       name: 'Driving Lession',
       overwriteCost: -1
     }),
-    createCopies(20, {
+    ...createCopies(20, {
       name: 'Auto Pilot',
       overwriteCost: 0,
       xpGain: -2,
@@ -24,7 +25,7 @@ function generateStarterCards () {
 
 export const LEARNER_CARDS = generateStarterCards()
 
-export function debug () {
+export function debug(): void {
   console.log('LEANER')
   console.log('Number of cards: ', LEARNER_CARDS.length)
   console.log('Cards: ', LEARNER_CARDS)
